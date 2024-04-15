@@ -136,32 +136,91 @@
         <div class="container">
             <img src="https://i.ibb.co/JpC9phQ/B-Y-PRO.png" alt="B.Y PRO" class="logo">
             <div class="title">B.Y PRO Techno app</div>
+            <img src="https://cdn-icons-png.flaticon.com/128/11608/11608481.png" alt="Home" style="position: fixed; bottom: 10px; left: 10px; width: auto; height: 60px;" onclick="goToHome()">
+            <img src="https://cdn-icons-png.flaticon.com/128/9800/9800657.png" alt="Toggle Dark/Light Mode" onclick="toggleDarkLightMode()" class="dark-light-mode-button">
         </div>
     </nav>
-    <div class="content" id="arabicText">
+    <img src="https://cdn-icons-png.flaticon.com/128/2327/2327648.png" alt="New Button" style="position: fixed; bottom: 10px; left: 100px; width: 55px; height: auto;" onclick="handleNewButtonClick()">
+    <img src="https://cdn-icons-png.flaticon.com/128/9397/9397477.png" class="info-btn" onclick="showInfo()" style="width: 65px; height: auto;">
+    <button onclick="performAIAction()" style="position: fixed; bottom: 0.5px; left: 40%; border: none; background: none; cursor: pointer;">
+        <img src="https://cdn-icons-png.flaticon.com/128/9691/9691165.png" alt="AI" style="width: 70px; height: auto;">
+    </button>
+    <img src="https://cdn-icons-png.flaticon.com/128/9397/9397477.png" class="info-btn" onclick="showInfoPopup()" style="width: 65px; height: auto;">
+    <div class="info-popup" id="infoPopup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closeInfoPopup()">x</span>
+            <img src="https://i.ibb.co/XsCRr5Q/B-Y-PRO.png" class="logo" alt="B.Y PRO logo" style="width: 70px; height: auto; border-radius: 10px; margin-right: 50px; margin-left: 20px; margin-top: 30px;">
+            <div>
+                <div style="text-align: center;">
+                    <h2 style="color: #fff;margin-bottom: 20px;">B.Y PRO</h2>
+                    <p style="color: #fff;margin-bottom: 7px;">Techno app v5.0</p>
+                </div>
+                <hr>
+                <p style="color: #fff;margin-bottom: 5px;text-align: left;">This program is in order to communicate with us, reach us, be closer, and learn about our latest developments and services.</p>
+                <p style="color: #ff3;margin-bottom: 3px;text-align: left;">Thank you to the B.Y PRO technical support team for programming this modern and distinctive version of this application </p>
+                <div style="text-align: left;">
+                    <p style="margin-bottom: 3;text-align: center;">⭐ ⭐ ⭐ ⭐ ⭐</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content" id="arabicText" style="padding: 10px; border-radius: 30px; border: 3px solid ;animation: rainbowBorder 5s infinite alternate;text-align: center;">
         <h2>تعتبر مؤسسة B.Y PRO وجهة للدعم التقني المتكامل وإصلاح المشاكل في مجالات الحواسيب، الهواتف، البرمجيات، والبرمجة. نحن نقدم حلولًا فورية وموثوقة لجميع مشاكلك التقنية بفضل فريقنا المحترف والمتخصص. بغض النظر عن طبيعة المشكلة التقنية التي تواجهها، فإننا نضمن الاستجابة السريعة والحلول الفعالة. بالإضافة إلى ذلك، نقدم نصائح وتوجيهات مخصصة لمساعدتك في الحفاظ على أجهزتك وبرمجياتك بأفضل حال.</h2>
     </div>
-    <div class="content" id="englishText" style="display: none;">
+    <div class="content" id="englishText" style="display: none; padding: 1px; border-radius: 30px; border: 3px solid ;animation: rainbowBorder 5s infinite alternate;text-align: center;">
         <h2>B.Y PRO is considered a destination for comprehensive technical support and troubleshooting in the fields of computers, phones, software, and programming. We provide immediate and reliable solutions to all your technical issues thanks to our professional and specialized team. Regardless of the nature of the technical problem you are facing, we guarantee quick response and effective solutions. Additionally, we offer tailored advice and guidance to help you maintain your devices and software in the best condition.</h2>
     </div>
+    <div class="button-container">
+        <div class="button" style="background-image: url('https://cdn-icons-png.flaticon.com/128/4496/4496272.png'); background-size: cover; border: 3px solid #gray; border-radius: 20px;"></div>
+        <div class="button" style="background-image: url('https://cdn-icons-png.flaticon.com/128/3762/3762321.png'); background-size: cover; border: 3px solid #gray; border-radius: 20px;"></div>
+        <div class="button" style="background-image: url('https://cdn-icons-png.flaticon.com/128/4763/4763553.png'); background-size: cover; border: 3px solid #gray; border-radius: 20px;"></div>
+        <div class="button" style="background-image: url('https://cdn-icons-png.flaticon.com/128/4771/4771029.png'); background-size: cover; border: 3px solid #gray; border-radius: 20px;"></div>
+    </div>
     <script>
-        // Function to change language
-        function changeLanguage() {
-            var arabicText = document.getElementById("arabicText");
-            var englishText = document.getElementById("englishText");
-            var langBtn = document.getElementById("langBtn");
+        let darkMode = false;
 
-            if (arabicText.style.display !== "none") {
+        function toggleDarkLightMode() {
+            const body = document.body;
+            body.classList.toggle("dark-mode");
+            darkMode = !darkMode;
+        }
+
+        function changeLanguage() {
+            const arabicText = document.getElementById('arabicText');
+            const englishText = document.getElementById('englishText');
+            if (arabicText.style.display === "none") {
+                arabicText.style.display = "block";
+                englishText.style.display = "none";
+            } else {
                 arabicText.style.display = "none";
                 englishText.style.display = "block";
-                englishText.style.borderStyle = "solid";
-                langBtn.style.transform = "rotateY(180deg)";
-            } else {
-                arabicText.style.display = "block";
-                arabicText.style.borderStyle = "solid";
-                englishText.style.display = "none";
-                langBtn.style.transform = "rotateY(0deg)";
             }
+        }
+
+        function goToHome() {
+            alert('Navigating to home page...');
+        }
+
+        function handleNewButtonClick() {
+            alert('Creating new...');
+        }
+
+        function showInfo() {
+            alert('Showing info...');
+        }
+
+        function performAIAction() {
+            alert('Performing AI action...');
+        }
+
+        function showInfoPopup() {
+            const infoPopup = document.getElementById('infoPopup');
+            infoPopup.style.display = "block";
+        }
+
+        function closeInfoPopup() {
+            const infoPopup = document.getElementById('infoPopup');
+            infoPopup.style.display = "none";
         }
     </script>
 </body>
