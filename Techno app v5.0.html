@@ -3,35 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- تحديد مسار ملف CSS لـ Bootstrap -->
-<link rel="stylesheet" href="/storage/emulated/0/bootstrap-5.3.3-dist/css/bootstrap.min.css">
-<!-- تحديد مسار ملف jQuery -->
-<script src="/storage/emulated/0/bootstrap-5.3.3-dist/js/jquery.min.js"></script>
-<!-- تحديد مسار ملف JavaScript لـ Bootstrap -->
-<script src="/storage/emulated/0/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <style>
-@media (max-width: 1000px) {
-  .container {
-    max-width: 100%;
-  }
-}
-
-
-
-
-.container {
-    max-width: 100%;
-    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
-    padding: 0 20px; /* إضافة هامش لتفادي الازدحام عند الحدود */
-}
-
-
-
-
-
-
 body {
     background-color: #fff;
     margin: 0;
@@ -40,7 +14,7 @@ body {
 }
 
 nav {
-    background-color: #000000;
+    background-color: #000;
     height: 30px;
     width: 100%;
     position: fixed;
@@ -49,14 +23,14 @@ nav {
     z-index: 1001;
     display: flex;
     justify-content: center;
-    align-items: center; /* يوسط العناصر عموديًا */
+    align-items: center;
 }
 
 .container {
     max-width: 100%;
     padding: 5px;
     display: flex;
-    align-items: flex-start; /* يضع الصورة في الجزء العلوي من العنصر */
+    align-items: flex-start;
 }
 
 .title {
@@ -64,42 +38,30 @@ nav {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
-    margin-left: auto; /* يوسط النص أفقيًا */
-    margin-right: 0px; /* تباعد بسيط بين الصورة والنص */
+    margin-left: auto;
 }
 
 .logo {
-    position: absolute;
-    top: 2px;
-    left: 2px;
     width: 27px;
     height: auto;
-    z-index: 1001;
 }
 
 .info-btn {
-    right: 15px; /* قمت بتغيير القيمة هنا */
-    border: none;
-    padding:5px;
-    cursor: pointer;
     position: fixed;
     bottom: 7px;
-    border-radius: 50px;
+    right: 15px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 50%;
     z-index: 1000;
-    width: 100px;
-    height: 100px;
-}
-
-.dark-mode {
-    background-color: #111; /* لون خلفية الصفحة في وضع الظلام */
-    color: #000; /* لون النص في وضع الظلام */
+    width: 50px;
+    height: 50px;
 }
 
 .dark-light-mode-button {
-    width: 65px;
-    height: 65px;
-    background-size: cover;
-    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
     position: fixed;
     bottom: 10px;
@@ -109,11 +71,10 @@ nav {
 }
 
 .info-popup {
-    display: none; /* أخفي النافذة المنبثقة افتراضيًا */
+    display: none;
     position: fixed;
-    top: 60%;
+    top: 50%;
     left: 50%;
-    width: 80%;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.9);
     padding: 20px;
@@ -134,50 +95,23 @@ nav {
     100% { border-color: red; }
 }
 
-.popup-content {
-    display: flex;
-    align-items: center;
-}
-
 .close-btn {
     position: absolute;
-    top: 0.5px;
-    right: 10px;
-    font-size: 30px;
+    top: 5px;
+    right: 5px;
+    font-size: 20px;
     color: red;
     cursor: pointer;
 }
 
-#langBtn {
-    position: absolute;
-    background-image: url('https://cdn-icons-png.freepik.com/256/9100/9100656.png?ga=GA1.1.1547068981.1710926911&');
-    left: auto; /* إلغاء تحديد اليسار */
-    right: 35px; /* تحديد الحافة اليمنى */
-    background-size: cover;
-    top: 1px;
-    width: 26px;
-    height: 26px;
-    border: none;
-    cursor: pointer;     
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-    border-radius: 50px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 1);
-}
-
 .content {
     background-color: #fff;
-    border: 15px ridge; /* تغيير البوردر إلى ridge */
+    border: 15px ridge;
     border-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
     padding: 20px;
     text-align: center;
-    max-width: 400px;
-    margin: 40px auto 0; /* تحديد المسافة بين الشريط العلوي والنص */
-}
-
-.content h2 {
-    font-size: 17px;
+    max-width: 100%;
+    margin: 40px auto 0;
 }
 
 .button-container {
@@ -194,210 +128,100 @@ nav {
     border: 2px solid;
     margin: 30px;
     padding: 20px;
-    background-image: ; /* تعيين خلفية الحدود بألوان قوس قزح */
+    background-image: ;
 }
+
+@media (max-width: 767px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .title {
+        margin: 0;
+        margin-top: 5px;
+    }
+    .logo {
+        margin-top: 5px;
+    }
+    .info-btn {
+        right: 15px;
+        bottom: 70px;
+    }
+    .dark-light-mode-button {
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
 </style>
 </head>
 <body>
-
 <nav>
-  <button id="langBtn" onclick="changeLanguage()"></button>
-  <div class="container">
-    <img src="https://i.ibb.co/JpC9phQ/B-Y-PRO.png" alt="B.Y PRO" class="logo">
-    <div class="title">B.Y PRO Techno app</div>
-
-    <img src="https://cdn-icons-png.flaticon.com/128/11608/11608481.png" alt="Home" style="position: fixed; bottom: 10px; left: 10px; width: auto; height: 60px;" onclick="goToHome()">
-
-    <img src="https://cdn-icons-png.flaticon.com/128/9800/9800657.png" alt="Toggle Dark/Light Mode" onclick="toggleDarkLightMode()" class="dark-light-mode-button">
-  </div>
+    <div class="container">
+        <img src="https://i.ibb.co/JpC9phQ/B-Y-PRO.png" alt="B.Y PRO" class="logo">
+        <div class="title">B.Y PRO Techno app</div>
+    </div>
 </nav>
-
+<img src="https://cdn-icons-png.flaticon.com/128/11608/11608481.png" alt="Home" style="position: fixed; bottom: 10px; left: 10px; width: auto; height: 60px;" onclick="goToHome()">
 <img src="https://cdn-icons-png.flaticon.com/128/2327/2327648.png" alt="New Button" style="position: fixed; bottom: 10px; left: 100px; width: 55px; height: auto;" onclick="handleNewButtonClick()">
-
 <button onclick="performAIAction()" style="position: fixed; bottom: 0.5px; left: 40%; border: none; background: none; cursor: pointer;">
     <img src="https://cdn-icons-png.flaticon.com/128/9691/9691165.png" alt="AI" style="width: 70px; height: auto;">
 </button>
-
+<img src="https://cdn-icons-png.flaticon.com/128/9397/9397477.png" class="info-btn" onclick="showInfoPopup()">
 <div class="info-popup" id="infoPopup">
-    <div class="popup-content">
-        <span class="close-btn" onclick="closeInfoPopup()">x</span>
-        <img src="https://i.ibb.co/XsCRr5Q/B-Y-PRO.png" class="logo" alt="B.Y PRO logo" style="width: 70px; height: auto; border-radius: 10px; margin-right: 50px; margin-left: 20px; margin-top: 30px;">
-        <div>
-            <div style="text-align: center;">
-                <h2 style="color: #fff;margin-bottom: 20px;">B.Y PRO</h2>
-                <p style="color: #fff;margin-bottom: 7px;">Techno app v5.0</p>
-            </div>
-            <hr> 
-            <p style="color: #fff;margin-bottom: 5px;text-align: left;">This program is in order to communicate with us, reach us, be closer, and learn about our latest developments and services.</p>
-            <p style="color: #ff3;margin-bottom: 3px;text-align: left;">Thank you to the B.Y PRO technical support team for programming this modern and distinctive version of this application </p>
-            <div style="text-align: left;">
-                <p style="margin-bottom: 3;text-align: center;">⭐ ⭐ ⭐ ⭐ ⭐</p>
-            </div>
+    <span class="close-btn" onclick="closeInfoPopup()">x</span>
+    <img src="https://i.ibb.co/XsCRr5Q/B-Y-PRO.png" class="logo" alt="B.Y PRO logo" style="width: 70px; height: auto; border-radius: 10px; margin-right: 50px; margin-left: 20px; margin-top: 30px;">
+    <div>
+        <div style="text-align: center;">
+            <h2 style="color: #fff;margin-bottom: 20px;">B.Y PRO</h2>
+            <p style="color: #fff;margin-bottom: 7px;">Techno app v5.0</p>
+        </div>
+        <hr> 
+        <p style="color: #fff;margin-bottom: 5px;text-align: left;">This program is in order to communicate with us, reach us, be closer, and learn about our latest developments and services.</p>
+        <p style="color: #ff3;margin-bottom: 3px;text-align: left;">Thank you to the B.Y PRO technical support team for programming this modern and distinctive version of this application </p>
+        <div style="text-align: left;">
+            <p style="margin-bottom: 3;text-align: center;">⭐ ⭐ ⭐ ⭐ ⭐</p>
         </div>
     </div>
 </div>
-
-<img src="https://cdn-icons-png.flaticon.com/128/9397/9397477.png" class="info-btn" onclick="showInfoPopup()" style="width: 65px; height: auto;">
-
-<div class="content" id="arabicText" style="padding: 10px; border-radius: 30px; border: 3px solid ;animation: rainbowBorder 5s infinite alternate;text-align: center;">
-  <h2>تعتبر مؤسسة B.Y PRO وجهة للدعم التقني المتكامل وإصلاح المشاكل في مجالات الحواسيب، الهواتف، البرمجيات، والبرمجة. نحن نقدم حلولًا فورية وموثوقة لجميع مشاكلك التقنية بفضل فريقنا المحترف والمتخصص. بغض النظر عن طبيعة المشكلة التقنية التي تواجهها، فإننا نضمن الاستجابة السريعة والحلول الفعالة. بالإضافة إلى ذلك، نقدم نصائح وتوجيهات مخصصة لمساعدتك في الحفاظ على أجهزتك وبرمجياتك بأفضل حال.</h2>
+<div class="content" id="arabicText">
+    <h2>تعتبر مؤسسة B.Y PRO وجهة للدعم التقني المتكامل وإصلاح المشاكل في مجالات الحواسيب، الهواتف، البرمجيات، والبرمجة. نحن نقدم حلولًا فورية وموثوقة لجميع مشاكلك التقنية بفضل فريقنا المحترف والمتخصص. بغض النظر عن طبيعة المشكلة التقنية التي تواجهها، فإننا نضمن الاستجابة السريعة والحلول الفعالة. بالإضافة إلى ذلك، نقدم نصائح وتوجيهات مخصصة لمساعدتك في الحفاظ على أجهزتك وبرمجياتك بأفضل حال.</h2>
 </div>
-
-<div class="content" id="englishText" style="display: none; padding: 1px; border-radius: 30px; border: 3px solid ;animation: rainbowBorder 5s infinite alternate;text-align: center;">
-  <h2>B.Y PRO is considered a destination for comprehensive technical support and troubleshooting in the fields of computers, phones, software, and programming. We provide immediate and reliable solutions to all your technical issues thanks to our professional and specialized team. Regardless of the nature of the technical problem you are facing, we guarantee quick response and effective solutions. Additionally, we offer tailored advice and guidance to help you maintain your devices and software in the best condition.</h2>
+<div class="content" id="englishText" style="display: none;">
+    <h2>B.Y PRO is considered a destination for comprehensive technical support and troubleshooting in the fields of computers, phones, software, and programming. We provide immediate and reliable solutions to all your technical issues thanks to our professional and specialized team. Regardless of the nature of the technical problem you are facing, we guarantee quick response and effective solutions. Additionally, we offer tailored advice and guidance to help you maintain your devices and software in the best condition.</h2>
 </div>
-
 <div class="button-container">
     <div class="button" style="background-image: url('https://cdn-icons-png.flaticon.com/128/4496/4496272.png'); background-size: cover; border: 3px solid #gray; border-radius: 20px;"></div>
     <div class="button" style="background-image: url('https://cdn-icons-png.flaticon.com/128/4963/4963862.png'); background-size: cover; border: 3px solid #gray; border-radius: 20px;"></div>
 </div>
-
 <div class="button-container">
     <div class="button" style="background-image: url('https://cdn-icons-png.flaticon.com/128/2519/2519229.png'); background-size: cover; border: 3px solid #gray; border-radius: 20px;"></div>
     <div class="button" style="background-image: url('https://cdn-icons-png.flaticon.com/128/12099/12099843.png'); background-size: cover; border: 3px solid #gray; border-radius: 20px;"></div>
 </div>
-
 <script>
-    // Function to toggle dark/light mode
-    function toggleDarkLightMode() {
-        var body = document.body;
-        body.classList.toggle("dark-mode");
-    }
+function toggleDarkLightMode() {
+    var body = document.body;
+    body.classList.toggle("dark-mode");
+}
 
-    // Function to handle click on "New" button
-    function handleNewButtonClick() {
-        var buttonsContainer = document.querySelector('.buttons-container');
+function handleNewButtonClick() {
+    // Your code for handling "New" button click goes here
+}
 
-        // Create buttons container if it doesn't exist
-        if (!buttonsContainer) {
-            buttonsContainer = document.createElement('div');
-            buttonsContainer.className = 'buttons-container';
-            buttonsContainer.style.position = 'fixed';
-            buttonsContainer.style.top = '0';
-            buttonsContainer.style.left = '100%';
-            buttonsContainer.style.transform = 'translateX(-100%)'; 
-            buttonsContainer.style.width = '100%'; 
-            buttonsContainer.style.height = '92vh'; 
-            buttonsContainer.style.backgroundColor = 'black'; 
-            buttonsContainer.style.opacity = '10'; 
-            buttonsContainer.style.display = 'flex';
-            buttonsContainer.style.flexDirection = 'column';
-            buttonsContainer.style.justifyContent = 'center';
-            buttonsContainer.style.alignItems = 'center';
+function performAIAction() {
+    // Your code for performing AI action goes here
+}
 
-            // Hide language button if visible
-            if (langBtn.style.display !== "none") {
-                langBtn.style.display = "none";
-            }
+function showInfoPopup() {
+    var infoPopup = document.getElementById("infoPopup");
+    infoPopup.style.display = "block";
+}
 
-            // Button data
-            var buttonsData = [
-                { icon: "https://i.ibb.co/WnrGTrL/Youtube.png", url: "https://www.youtube.com/@technoYT2024", backgroundColor: "white", textColor: "black", borderColor: "red", height: "80px", borderWidth: "4px", text: "Youtube" },
-                { icon: "https://i.ibb.co/RQKWsHv/Facebook.png", url: "https://www.facebook.com/profile.php?id=100085217054240", backgroundColor: "white", textColor: "black", borderColor: "blue", height: "80px", borderWidth: "4px", text: "Facebook" },
-                { icon: "https://i.ibb.co/YQkPcZB/Instagram.png", url: "https://www.instagram.com/b.yproinsta?igshid=dGRkczlpdmo2ZnFh", backgroundColor: "white", textColor: "black", borderColor: "orange", height: "80px", borderWidth: "4px", text: "Instagram" },
-                { icon: "https://i.ibb.co/nB18VVp/WhatsApp.png", url: "https://wa.me/213795082763", backgroundColor: "white", textColor: "black", borderColor: "green", height: "80px", borderWidth: "4px", text: "WhatsApp" }
-            ];
-
-            // Create buttons
-            buttonsData.forEach(function(buttonData) {
-                var button = document.createElement("button");
-                button.style.backgroundColor = buttonData.backgroundColor;
-                button.style.color = buttonData.textColor;
-                button.style.border = buttonData.borderWidth + " solid " + buttonData.borderColor;
-                button.style.height = buttonData.height;
-                button.style.width = "calc(100% - 40px)";
-                button.style.margin = "10px";
-                button.style.fontWeight = "bold";
-                button.style.backgroundImage = "url('" + buttonData.icon + "')";
-                button.style.backgroundSize = "contain";
-                button.style.backgroundPosition = "left center";
-                button.style.backgroundRepeat = "no-repeat";
-                button.textContent = buttonData.text;
-                button.style.paddingLeft = "30px";
-                button.style.textAlign = "center";
-                button.style.lineHeight = buttonData.height;
-                button.style.fontSize = "25px";
-                button.style.backgroundPositionX = "25px";
-                button.onclick = function() {
-                window.open(buttonData.url);
-                };
-                buttonsContainer.appendChild(button);
-            });
-
-            document.body.appendChild(buttonsContainer);
-        } else {
-            // Show language button if hidden
-          
-        }
-    }
-
-    // Function to redirect to a URL
-    function redirectToURL(url) {
-        window.location.href = url;
-    }
-
-    // Function to perform AI action
-    function performAIAction() {
-        var elementsToHide = document.querySelectorAll('.content, .buttons-container');
-        elementsToHide.forEach(function(element) {
-            element.style.display = 'none';
-        });
-
-        var iframe = document.createElement('iframe');
-        iframe.src = 'https://app.myshell.ai/m/chat/4738?name=GPT%203.5';
-        iframe.style.position = 'fixed';
-        iframe.style.top = '0';
-        iframe.style.left = '0';
-        iframe.style.width = '100%';
-        iframe.style.height = 'calc(100% - 80px)';
-        iframe.style.border = 'none';
-        document.body.appendChild(iframe);
-    }
-
-    // Function to show buttons
-    function showButtons() {
-        var buttonsContainer = document.querySelector('.buttons-container');
-        if (buttonsContainer && buttonsContainer.style.display === "none") {
-            buttonsContainer.style.display = "block";
-        }
-    }
-
-    // Function to change language
-    function changeLanguage() {
-        var arabicText = document.getElementById("arabicText");
-        var englishText = document.getElementById("englishText");
-        var langBtn = document.getElementById("langBtn");
-
-        if (arabicText.style.display !== "none") {
-            arabicText.style.display = "none";
-            englishText.style.display = "block";
-            englishText.style.borderStyle = "solid";
-            langBtn.style.transform = "rotateY(180deg)";
-        } else {
-            arabicText.style.display = "block";
-            arabicText.style.borderStyle = "solid";
-            englishText.style.display = "none";
-            langBtn.style.transform = "rotateY(0deg)";
-        }
-    }
-    
-    // Function to display info
-    function displayInfo() {
-        // Here you can add your code to display information as needed
-        alert("Info: This is where you can display information.");
-    }
-
-    // Function to close info popup
-    function closeInfoPopup() {
-        var infoPopup = document.getElementById("infoPopup");
-        infoPopup.style.display = "none";
-    }
-
-    // Function to display info popup
-    function showInfoPopup() {
-        var infoPopup = document.getElementById("infoPopup");
-        infoPopup.style.display = "block"; 
-    }
+function closeInfoPopup() {
+    var infoPopup = document.getElementById("infoPopup");
+    infoPopup.style.display = "none";
+}
 </script>
 </body>
 </html>
