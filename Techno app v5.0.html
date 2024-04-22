@@ -43,7 +43,7 @@ nav {
     font-weight: bold;
     text-align: center;
     margin-left: auto; /* يوسط النص أفقيًا */
-    margin-right: 0px; /* تباعد بسيط بين الصورة والنص */
+    margin-right: 1px; /* تباعد بسيط بين الصورة والنص */
 }
 .logo {
     position: absolute;
@@ -54,22 +54,14 @@ nav {
     z-index: 1001;
 }
 .info-btn {
-    right: 15px; /* قمت بتغيير القيمة هنا */
+    right: 30px; /* قمت بتغيير القيمة هنا */
     border: none;
     padding:5px;
     cursor: pointer;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
 }
-.dark-mode {
-    background-color: #111; /* لون خلفية الصفحة في وضع الظلام */
-    color: #000; /* لون النص في وضع الظلام */
-}
-.dark-light-mode-button {
-    background-size: cover;
-    background-repeat: no-repeat;
-    cursor: pointer;
-}
+
 .info-popup {
     display: none; /* أخفي النافذة المنبثقة افتراضيًا */
     position: fixed;
@@ -106,23 +98,8 @@ nav {
     color: red;
     cursor: pointer;
 }
-#langBtn {
-    position: absolute;
-    background-image: url('https://cdn-icons-png.freepik.com/256/9100/9100656.png?ga=GA1.1.1547068981.1710926911&');
-    left: auto; /* إلغاء تحديد اليسار */
-    right: 35px; /* تحديد الحافة اليمنى */
-    background-size: cover;
-    top: 1px;
-    width: 26px;
-    height: 26px;
-    border: none;
-    cursor: pointer;     
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-    border-radius: 50px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 1);
-}
+
+
 .content {
     background-color: #fff;
     border: 15px ridge; /* تغيير البوردر إلى ridge */
@@ -182,22 +159,141 @@ button {
 <body>
 <nav class="btn-bar" >
     <img src="https://i.ibb.co/JpC9phQ/B-Y-PRO.png" alt="B.Y PRO" class="logo">
+ 
+
+    <img src="https://i.ibb.co/ZxH3j9W/1000057452-removebg-preview.png" alt="Logo" style="position: fixed; top: 0; right: 0; margin-right: 3px; width: 30px; height: auto;">
+
+    
     <div class="title">B.Y PRO Techno app</div>
 </nav>
   <button id="langBtn" onclick="changeLanguage()"></button>
   <div class="container-1">
+  
+  
+  
+  
     <img src="https://cdn-icons-png.flaticon.com/128/11608/11608481.png" alt="Home" onclick="goToHome()">
-    <img src="https://cdn-icons-png.flaticon.com/128/9800/9800657.png" alt="Toggle Dark/Light Mode" onclick="toggleDarkLightMode()" class="dark-light-mode-button">
+
+
     <img src="https://cdn-icons-png.flaticon.com/128/2327/2327648.png" alt="New Button" onclick="handleNewButtonClick()">
     <button onclick="performAIAction()"  >
     <img src="https://cdn-icons-png.flaticon.com/128/9691/9691165.png" alt="AI">
     </button>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    border: 3px solid white;
+    border-radius: 15px;
+    padding: 100px;
+    color: white;
+    z-index: 1001;
+  }
+
+  .popup-content {
+    text-align: center;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 20px;
+    color: red;
+    cursor: pointer;
+  }
+
+  .popup-title {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px; /* تحديد الانخفاض من الأعلى */
+    left: 20px; /* تحديد المسافة من اليسار */
+  }
+
+  .popup-text {
+    color: white;
+    font-size: 18px; /* زيادة حجم النص */
+    font-weight: bold; /* جعل النص غليظًا */
+    text-align: left;
+    margin-left: 10px; /* تحديد المسافة من اليسار */
+    margin-top: 50px; /* تحديد المسافة من الأعلى */
+  }
+</style>
+</head>
+<body>
+
+<img src="https://cdn-icons-png.flaticon.com/128/9548/9548840.png" alt="settings" onclick="showPopup()">
+<div id="popup" class="popup" style="width: 200px; height: 150px;">
+  <span class="popup-content">
+    <span class="close-btn" onclick="closePopup()">x</span>
+    <h2 class="popup-title" style="text-align: center;">Settings</h2>
+    <p class="popup-text" style="color: white; text-align: left;">Language</p>
+  </span>
+</div>
+
+<script>
+  function showPopup() {
+    var popup = document.getElementById("popup");
+    popup.style.display = "block";
+  }
+
+  function closePopup() {
+    var popup = document.getElementById("popup");
+    popup.style.display = "none";
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
     <img src="https://cdn-icons-png.flaticon.com/128/9397/9397477.png" class="info-btn" onclick="showInfoPopup()">
   </div>
+  
 
 <div class="info-popup" id="infoPopup">
     <div class="popup-content">
         <span class="close-btn" onclick="closeInfoPopup()">x</span>
+        
+        
+        
+        
+        
         <div>
             <div style="text-align: center;">
                 <h2 style="color: #fff;margin-bottom: 20px;">B.Y PRO</h2>
@@ -212,6 +308,9 @@ button {
         </div>
     </div>
 </div>
+
+
+  
 <div class="content" id="arabicText" style="padding: 10px; border-radius: 30px; border: 3px solid ;animation: rainbowBorder 5s infinite alternate;text-align: center;">
   <h2>تعتبر مؤسسة B.Y PRO وجهة للدعم التقني المتكامل وإصلاح المشاكل في مجالات الحواسيب، الهواتف، البرمجيات، والبرمجة. نحن نقدم حلولًا فورية وموثوقة لجميع مشاكلك التقنية بفضل فريقنا المحترف والمتخصص. بغض النظر عن طبيعة المشكلة التقنية التي تواجهها، فإننا نضمن الاستجابة السريعة والحلول الفعالة. بالإضافة إلى ذلك، نقدم نصائح وتوجيهات مخصصة لمساعدتك في الحفاظ على أجهزتك وبرمجياتك بأفضل حال.</h2>
 </div>
