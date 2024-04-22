@@ -24,12 +24,11 @@ body {
     padding: 0 20px; /* إضافة هامش لتفادي الازدحام عند الحدود */
 }
 nav {
-	position:fixed;
-	top:0;
+    position:fixed;
+    top:0;
     background-color: #000000;
     height: 30px;
     width: 100%;
-
 }
 .container {
     max-width: 100%;
@@ -97,7 +96,6 @@ nav {
 .popup-content {
     display: flex;
     align-items: center;
-
 }
 .close-btn {
     position: absolute;
@@ -132,21 +130,21 @@ nav {
     text-align: center;
     max-width: 400px;
     margin: 70px auto ; /* تحديد المسافة بين الشريط العلوي والنص */
+    border-radius: 30px;
 }
 .content h2 {
     font-size: 15px;
-text-transform:capitalize;
+    text-transform: capitalize;
 }
 .button-container {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-	margin-top:50px;
-
-    }
+    margin-top: 50px;
+}
 .button {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 20px;
     border: 2px solid;
     margin: 30px;
@@ -154,29 +152,29 @@ text-transform:capitalize;
     background-image: ; /* تعيين خلفية الحدود بألوان قوس قزح */
 }
 .container-1  {
-	display:flex;
-	justify-content:space-between;
-	align-items:center;
-	position:fixed;
-	bottom:0px;
-	background:white;
-	width:100%;
-	height:100px;
-	z-index:1;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    bottom:0px;
+    background:white;
+    width:100%;
+    height:100px;
+    z-index:1;
 }
 button {
-	background:transparent;
-	border:none;
+    background:transparent;
+    border:none;
 }
 .container-1 img{
-	width:50px;
-	height:50px;
-	background:transparent;
-	margin:0 5px;
-	padding-bottom:4px;
+    width:50px;
+    height:50px;
+    background:transparent;
+    margin:0 5px;
+    padding-bottom:4px;
 }
 #langBtn {
-position:fixed;
+    position:fixed;
 }
 </style>
 </head>
@@ -187,22 +185,18 @@ position:fixed;
 </nav>
   <button id="langBtn" onclick="changeLanguage()"></button>
   <div class="container-1">
-	<img src="https://cdn-icons-png.flaticon.com/128/11608/11608481.png" alt="Home" onclick="goToHome()">
-	<img src="https://cdn-icons-png.flaticon.com/128/9800/9800657.png" alt="Toggle Dark/Light Mode" onclick="toggleDarkLightMode()" class="dark-light-mode-button">
-	<img src="https://cdn-icons-png.flaticon.com/128/2327/2327648.png" alt="New Button" onclick="handleNewButtonClick()">
-	<button onclick="performAIAction()"  >
-	<img src="https://cdn-icons-png.flaticon.com/128/9691/9691165.png" alt="AI">
-  	</button>
-  	<img src="https://cdn-icons-png.flaticon.com/128/9397/9397477.png" class="info-btn" onclick="showInfoPopup()">
+    <img src="https://cdn-icons-png.flaticon.com/128/11608/11608481.png" alt="Home" onclick="goToHome()">
+    <img src="https://cdn-icons-png.flaticon.com/128/9800/9800657.png" alt="Toggle Dark/Light Mode" onclick="toggleDarkLightMode()" class="dark-light-mode-button">
+    <img src="https://cdn-icons-png.flaticon.com/128/2327/2327648.png" alt="New Button" onclick="handleNewButtonClick()">
+    <button onclick="performAIAction()"  >
+    <img src="https://cdn-icons-png.flaticon.com/128/9691/9691165.png" alt="AI">
+    </button>
+    <img src="https://cdn-icons-png.flaticon.com/128/9397/9397477.png" class="info-btn" onclick="showInfoPopup()">
   </div>
-
-
-
 
 <div class="info-popup" id="infoPopup">
     <div class="popup-content">
         <span class="close-btn" onclick="closeInfoPopup()">x</span>
-
         <div>
             <div style="text-align: center;">
                 <h2 style="color: #fff;margin-bottom: 20px;">B.Y PRO</h2>
@@ -273,112 +267,102 @@ position:fixed;
             }
 
             // Button data
-            var buttonsData = [
-                { icon: "https://i.ibb.co/WnrGTrL/Youtube.png", url: "https://www.youtube.com/@technoYT2024", backgroundColor: "white", textColor: "black", borderColor: "red", height: "80px", borderWidth: "4px", text: "Youtube" },
-                { icon: "https://i.ibb.co/RQKWsHv/Facebook.png", url: "https://www.facebook.com/profile.php?id=100085217054240", backgroundColor: "white", textColor: "black", borderColor: "blue", height: "80px", borderWidth: "4px", text: "Facebook" },
-                { icon: "https://i.ibb.co/YQkPcZB/Instagram.png", url: "https://www.instagram.com/b.yproinsta?igshid=dGRkczlpdmo2ZnFh", backgroundColor: "white", textColor: "black", borderColor: "orange", height: "80px", borderWidth: "4px", text: "Instagram" },
-                { icon: "https://i.ibb.co/nB18VVp/WhatsApp.png", url: "https://wa.me/213795082763", backgroundColor: "white", textColor: "black", borderColor: "green", height: "80px", borderWidth: "4px", text: "WhatsApp" }
+            var buttonData = [
+                { text: 'Button 1', action: 'performAction1()' },
+                { text: 'Button 2', action: 'performAction2()' },
+                { text: 'Button 3', action: 'performAction3()' }
             ];
 
             // Create buttons
-            buttonsData.forEach(function(buttonData) {
-                var button = document.createElement("button");
-                button.style.backgroundColor = buttonData.backgroundColor;
-                button.style.color = buttonData.textColor;
-                button.style.border = buttonData.borderWidth + " solid " + buttonData.borderColor;
-                button.style.height = buttonData.height;
-                button.style.width = "calc(100% - 40px)";
-                button.style.margin = "10px";
-                button.style.fontWeight = "bold";
-                button.style.backgroundImage = "url('" + buttonData.icon + "')";
-                button.style.backgroundSize = "contain";
-                button.style.backgroundPosition = "left center";
-                button.style.backgroundRepeat = "no-repeat";
-                button.textContent = buttonData.text;
-                button.style.paddingLeft = "30px";
-                button.style.textAlign = "center";
-                button.style.lineHeight = buttonData.height;
-                button.style.fontSize = "25px";
-                button.style.backgroundPositionX = "25px";
-                button.onclick = function() {
-                window.open(buttonData.url);
-                };
+            buttonData.forEach(data => {
+                var button = document.createElement('button');
+                button.textContent = data.text;
+                button.setAttribute('onclick', data.action);
+                button.style.padding = '10px 20px';
+                button.style.marginBottom = '10px';
+                button.style.border = 'none';
+                button.style.borderRadius = '5px';
+                button.style.backgroundColor = '#fff';
+                button.style.cursor = 'pointer';
                 buttonsContainer.appendChild(button);
             });
 
+            // Append buttons container to body
             document.body.appendChild(buttonsContainer);
-        } else {
-            // Show language button if hidden
-          
+
+            // Animate buttons container
+            setTimeout(function() {
+                buttonsContainer.style.transform = 'translateX(0)';
+            }, 100);
         }
     }
 
-    // Function to redirect to a URL
-    function redirectToURL(url) {
-        window.location.href = url;
-    }
-
-    // Function to perform AI action
-    function performAIAction() {
-        var elementsToHide = document.querySelectorAll('.content, .buttons-container');
-        elementsToHide.forEach(function(element) {
-            element.style.display = 'none';
-        });
-
-        var iframe = document.createElement('iframe');
-        iframe.src = 'https://app.myshell.ai/m/chat/4738?name=GPT%203.5';
-        iframe.style.position = 'fixed';
-        iframe.style.top = '0';
-        iframe.style.left = '0';
-        iframe.style.width = '100%';
-        iframe.style.height = 'calc(100% - 80px)';
-        iframe.style.border = 'none';
-        document.body.appendChild(iframe);
-    }
-
-    // Function to show buttons
-    function showButtons() {
+    // Function to close "New" button container
+    function closeNewButtonContainer() {
         var buttonsContainer = document.querySelector('.buttons-container');
-        if (buttonsContainer && buttonsContainer.style.display === "none") {
-            buttonsContainer.style.display = "block";
+        buttonsContainer.style.transform = 'translateX(-100%)';
+
+        // Show language button
+        if (langBtn.style.display === "none") {
+            langBtn.style.display = "block";
         }
+
+        // Remove buttons container after animation
+        setTimeout(function() {
+            buttonsContainer.remove();
+        }, 500);
+    }
+
+    // Function to perform action 1
+    function performAction1() {
+        alert('Action 1 performed');
+    }
+
+    // Function to perform action 2
+    function performAction2() {
+        alert('Action 2 performed');
+    }
+
+    // Function to perform action 3
+    function performAction3() {
+        alert('Action 3 performed');
+    }
+
+    // Function to show info popup
+    function showInfoPopup() {
+        var popup = document.getElementById("infoPopup");
+        popup.style.display = "block";
+    }
+
+    // Function to close info popup
+    function closeInfoPopup() {
+        var popup = document.getElementById("infoPopup");
+        popup.style.display = "none";
     }
 
     // Function to change language
     function changeLanguage() {
         var arabicText = document.getElementById("arabicText");
         var englishText = document.getElementById("englishText");
-        var langBtn = document.getElementById("langBtn");
 
-        if (arabicText.style.display !== "none") {
+        if (arabicText.style.display === "none") {
+            arabicText.style.display = "block";
+            englishText.style.display = "none";
+        } else {
             arabicText.style.display = "none";
             englishText.style.display = "block";
-            englishText.style.borderStyle = "solid";
-            langBtn.style.transform = "rotateY(180deg)";
-        } else {
-            arabicText.style.display = "block";
-            arabicText.style.borderStyle = "solid";
-            englishText.style.display = "none";
-            langBtn.style.transform = "rotateY(0deg)";
         }
     }
     
-    // Function to display info
-    function displayInfo() {
-        // Here you can add your code to display information as needed
-        alert("Info: This is where you can display information.");
+    // Function to navigate to home
+    function goToHome() {
+        // Add your home page URL here
+        window.location.href = "home.html";
     }
-
-    // Function to close info popup
-    function closeInfoPopup() {
-        var infoPopup = document.getElementById("infoPopup");
-        infoPopup.style.display = "none";
-    }
-
-    // Function to display info popup
-    function showInfoPopup() {
-        var infoPopup = document.getElementById("infoPopup");
-        infoPopup.style.display = "block"; 
+    
+    // Function to perform AI action
+    function performAIAction() {
+        alert("AI action performed");
     }
 </script>
 </body>
