@@ -116,11 +116,15 @@ nav {
     padding: 20px;
     text-align: center;
     max-width: 400px;
-    margin: 15px auto ; /* تحديد المسافة بين الشريط العلوي والنص */
+    margin: 20px auto ; /* تحديد المسافة بين الشريط العلوي والنص */
     border-radius: 15px;
     padding: 0 10px; /* إضافة هامش لتفادي الازدحام عند الحدود */
-        
+    margin-left: 10px; /* تحديد التباعد من الحافة اليسرى */
+    margin-right: 10px; /* تحديد التباعد من الحافة اليمنى */
 }
+
+
+
 .content h2 {
     font-size: 15px;
     text-transform: center;
@@ -132,19 +136,27 @@ nav {
     align-items: flex-end;
     margin-top: 20px;
 }
+
+
+
 .button {
     width: 120px;
     height: 120px;
     border-radius: 20px;
     border: 2px solid;
-    margin: 30px;
-    padding: 30px;
-    
+    margin: 50px;
+    padding: 50px;
     background-image: ; /* تعيين خلفية الحدود بألوان قوس قزح */
-        max-width: 100%;
+    max-width: 100%;
     margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
     padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
 }
+
+/* إضافة مسافة بين الأزرار الأفقية */
+.button + .button {
+    margin-left: 60px; /* المسافة بين الأزرار */
+}
+
 
 
 .container-1 {
