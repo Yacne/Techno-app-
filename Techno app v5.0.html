@@ -7,22 +7,25 @@
 <!-- تحديد مسار ملف CSS لـ Bootstrap -->
 <link rel="stylesheet" href="/storage/emulated/0/bootstrap-5.3.3-dist/css/bootstrap.min.css">
 <!-- تحديد مسار ملف jQuery -->
-<script src="/storage/emulated/0/bootstrap-5.3.3-dist/js/jquery.min.js"></script>
+<script src="/bootstrap-5.3.3-dist/js/jquery.min.js"></script>
 <!-- تحديد مسار ملف JavaScript لـ Bootstrap -->
-<script src="/storage/emulated/0/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+<script src="/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
 <style>
+
+
 body {
     background-color: #fff;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    height:1200px;
+    height:1073px;
   
 }
 .container {
     max-width: 100%;
     margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
-    padding: 0 20px; /* إضافة هامش لتفادي الازدحام عند الحدود */
+    padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
+    
 }
 nav {
     position:fixed;
@@ -30,12 +33,18 @@ nav {
     background-color: #000000;
     height: 30px;
     width: 100%;
+        max-width: 100%;
+    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
+    padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
 }
 .container {
     max-width: 100%;
-    padding: 5px;
-    display: flex;
+    padding: 1px;
+    display:  fixed;
     align-items: flex-start; /* يضع الصورة في الجزء العلوي من العنصر */
+        max-width: 100%;
+    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
+    padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
 }
 .title {
     color:white;
@@ -107,18 +116,21 @@ nav {
     padding: 20px;
     text-align: center;
     max-width: 400px;
-    margin: 70px auto ; /* تحديد المسافة بين الشريط العلوي والنص */
-    border-radius: 30px;
+    margin: 15px auto ; /* تحديد المسافة بين الشريط العلوي والنص */
+    border-radius: 15px;
+    padding: 0 10px; /* إضافة هامش لتفادي الازدحام عند الحدود */
+        
 }
 .content h2 {
     font-size: 15px;
-    text-transform: capitalize;
+    text-transform: center;
+    
 }
 .button-container {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .button {
     width: 120px;
@@ -126,34 +138,56 @@ nav {
     border-radius: 20px;
     border: 2px solid;
     margin: 30px;
-    padding: 20px;
+    padding: 30px;
+    
     background-image: ; /* تعيين خلفية الحدود بألوان قوس قزح */
+        max-width: 100%;
+    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
+    padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
 }
-.container-1  {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    position:fixed;
-    bottom:0px;
-    background:white;
-    width:100%;
-    height:100px;
-    z-index:1;
+
+
+.container-1 {
+    display: flex;
+    justify-content: center; /* توسيط العنصر الداخلي أفقيًا */
+    align-items: center; /* توسيط العنصر الداخلي رأسيًا */
+    position: fixed;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+    width: 93%;
+    height: 75px;
+    z-index: 1;
+    border-radius: 15px;
+    border: 3px solid;
+    color: white;
+    max-width: 93%;
+    margin: 0 auto; /* توسيط العنصر الخارجي في الوسط */
+    padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
 }
+
+
+
+
 button {
     background:transparent;
     border:none;
+        max-width: 100%;
+    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
+    padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
 }
 .container-1 img{
     width:50px;
     height:50px;
     background:transparent;
-    margin:0 5px;
-    padding-bottom:4px;
+    margin:0 10px;
+    padding-bottom:10px;
+        max-width: 100%;
+    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
+    padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
 }
-#langBtn {
-    position:fixed;
-}
+
 </style>
 </head>
 <body>
@@ -161,7 +195,7 @@ button {
     <img src="https://i.ibb.co/JpC9phQ/B-Y-PRO.png" alt="B.Y PRO" class="logo">
  
 
-    <img src="https://i.ibb.co/ZxH3j9W/1000057452-removebg-preview.png" alt="Logo" style="position: fixed; top: 0; right: 0; margin-right: 3px; width: 30px; height: auto;">
+    <img src="https://i.ibb.co/ZxH3j9W/1000057452-removebg-preview.png" alt="Logo" style="position: fixed; top: 0; right: 0; margin-right: 5px; width: 30px; height: auto;">
 
     
     <div class="title">B.Y PRO Techno app</div>
@@ -196,17 +230,18 @@ button {
 
 <style>
   .popup {
-    display: none;
+    display: none; /* أخفي النافذة المنبثقة افتراضيًا */
     position: fixed;
     top: 50%;
     left: 50%;
+    width: 50%;
     transform: translate(-50%, -50%);
-    background-color: black;
-    border: 3px solid white;
+    background-color: rgba(0, 0, 0, 1);
+    padding: 20px;
     border-radius: 15px;
-    padding: 100px;
     color: white;
-    z-index: 1001;
+    z-index: 1002;
+    border: 3px solid;
   }
 
   .popup-content {
@@ -228,7 +263,7 @@ button {
     font-weight: bold;
     position: absolute;
     top: 10px; /* تحديد الانخفاض من الأعلى */
-    left: 20px; /* تحديد المسافة من اليسار */
+    left: 10px; /* تحديد المسافة من اليسار */
   }
 
   .popup-text {
@@ -402,10 +437,7 @@ button {
         var buttonsContainer = document.querySelector('.buttons-container');
         buttonsContainer.style.transform = 'translateX(-100%)';
 
-        // Show language button
-        if (langBtn.style.display === "none") {
-            langBtn.style.display = "block";
-        }
+
 
         // Remove buttons container after animation
         setTimeout(function() {
