@@ -411,22 +411,98 @@ button {
         infoPopup.style.display = "none";
     }
 
-    function handleNewButtonClick() {
-        window.location.href = "https://yacne.github.io/Techno-app-/Techno%20app%20v5.0.html";
-    }
+function handleNewButtonClick() {
+    var popup = document.createElement('div');
+    popup.className = 'popup';
+    popup.id = 'socialPopup';
+    popup.style.width = '300px';
+    popup.style.height = 'auto';
+    popup.style.background = 'rgba(0, 0, 0, 0.9)';
+    popup.style.padding = '20px';
+    popup.style.borderRadius = '15px';
+    popup.style.color = 'white';
+    popup.style.position = 'fixed';
+    popup.style.top = '50%';
+    popup.style.left = '50%';
+    popup.style.transform = 'translate(-50%, -50%)';
+    popup.style.zIndex = '1002';
+    popup.style.border = '3px solid';
+
+    var closeBtn = document.createElement('span');
+    closeBtn.className = 'close-btn';
+    closeBtn.textContent = 'x';
+    closeBtn.style.position = 'absolute';
+    closeBtn.style.top = '5px';
+    closeBtn.style.right = '10px';
+    closeBtn.style.fontSize = '20px';
+    closeBtn.style.color = 'red';
+    closeBtn.style.cursor = 'pointer';
+    closeBtn.onclick = function() {
+        document.body.removeChild(popup);
+    };
+
+    popup.appendChild(closeBtn);
+
+    var buttons = [
+        { icon: 'https://i.ibb.co/WnrGTrL/Youtube.png', url: 'https://www.youtube.com/@technoYT2024', bgColor: 'white', textColor: 'black', borderColor: 'red', text: 'Youtube' },
+        { icon: 'https://i.ibb.co/RQKWsHv/Facebook.png', url: 'https://www.facebook.com/profile.php?id=100085217054240', bgColor: 'white', textColor: 'black', borderColor: 'blue', text: 'Facebook' },
+        { icon: 'https://i.ibb.co/YQkPcZB/Instagram.png', url: 'https://www.instagram.com/b.yproinsta?igshid=dGRkczlpdmo2ZnFh', bgColor: 'white', textColor: 'black', borderColor: 'orange', text: 'Instagram' },
+        { icon: 'https://i.ibb.co/nB18VVp/WhatsApp.png', url: 'https://wa.me/213795082763', bgColor: 'white', textColor: 'black', borderColor: 'green', text: 'WhatsApp' },
+        { icon: 'https://i.ibb.co/5YV1kdw/Telephone.png', url: 'tel:+213795082763', bgColor: 'white', textColor: 'black', borderColor: 'gray', text: 'Telephone' },
+        { icon: 'https://i.ibb.co/s6hByd8/Telegram.png', url: 'https://t.me/BY_PRO', bgColor: 'white', textColor: 'black', borderColor: 'blue', text: 'Telegram' }
+    ];
+
+    buttons.forEach(function(button) {
+        var buttonElem = document.createElement('button');
+        buttonElem.style.backgroundColor = button.bgColor;
+        buttonElem.style.color = button.textColor;
+        buttonElem.style.border = '3px solid ' + button.borderColor;
+        buttonElem.style.borderRadius = '15px';
+        buttonElem.style.width = '100%';
+        buttonElem.style.marginBottom = '10px';
+        buttonElem.style.fontWeight = 'bold';
+        buttonElem.style.backgroundImage = 'url("' + button.icon + '")';
+        buttonElem.style.backgroundSize = 'contain';
+        buttonElem.style.backgroundPosition = 'left center';
+        buttonElem.style.backgroundRepeat = 'no-repeat';
+        buttonElem.textContent = button.text;
+        buttonElem.style.paddingLeft = '30px';
+        buttonElem.style.textAlign = 'center';
+        buttonElem.style.lineHeight = '50px';
+        buttonElem.style.fontSize = '18px';
+        buttonElem.style.backgroundPositionX = '20px';
+        buttonElem.onclick = function() {
+            window.open(button.url);
+        };
+
+        popup.appendChild(buttonElem);
+    });
+
+    document.body.appendChild(popup);
+}
+
 
     function goToHome() {
         window.location.href = "https://yacne.github.io/Techno-app-/Techno%20app%20v5.0.html";
     }
 
-    function performAIAction() {
-        var iframe = document.createElement('iframe');
-        iframe.src = 'https://mixerbox.ai/';
-        iframe.style.width = '100%';
-        iframe.style.height = '100%';
-        document.body.innerHTML = '';
-        document.body.appendChild(iframe);
-    }
+function performAIAction() {
+    var mainContainer = document.createElement('div');
+    mainContainer.style.position = 'fixed';
+    mainContainer.style.bottom = '110px';
+    mainContainer.style.left = '0';
+    mainContainer.style.width = '100%';
+    mainContainer.style.height = '100%';
+
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://mixerbox.ai/';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+
+    mainContainer.appendChild(iframe);
+    document.body.appendChild(mainContainer);
+}
+
 </script>
 
 
