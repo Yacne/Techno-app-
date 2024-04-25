@@ -218,14 +218,15 @@ button {
     <img src="https://cdn-icons-png.flaticon.com/128/11608/11608481.png" alt="Home" onclick="goToHome()">
 
 
-    <img src="https://cdn-icons-png.flaticon.com/128/2327/2327648.png" alt="New Button" onclick="handleNewButtonClick()">
-    <button onclick="performAIAction()"  >
+
+
+    
+<button onclick="sosialmedia()">
+    <img src="https://cdn-icons-png.flaticon.com/128/2327/2327648.png" alt="New Button">
+</button>
+
     <img src="https://cdn-icons-png.flaticon.com/128/9691/9691165.png" alt="AI">
     </button>
-    
-
-
-
 
 
 
@@ -411,81 +412,77 @@ button {
         infoPopup.style.display = "none";
     }
 
-function handleNewButtonClick() {
-    var popup = document.createElement('div');
-    popup.className = 'popup';
-    popup.id = 'socialPopup';
-    popup.style.width = '300px';
-    popup.style.height = 'auto';
-    popup.style.background = 'rgba(0, 0, 0, 0.9)';
-    popup.style.padding = '20px';
-    popup.style.borderRadius = '15px';
-    popup.style.color = 'white';
-    popup.style.position = 'fixed';
-    popup.style.top = '50%';
-    popup.style.left = '50%';
-    popup.style.transform = 'translate(-50%, -50%)';
-    popup.style.zIndex = '1002';
-    popup.style.border = '3px solid';
 
-    var closeBtn = document.createElement('span');
-    closeBtn.className = 'close-btn';
-    closeBtn.textContent = 'x';
-    closeBtn.style.position = 'absolute';
-    closeBtn.style.top = '5px';
-    closeBtn.style.right = '10px';
-    closeBtn.style.fontSize = '20px';
-    closeBtn.style.color = 'red';
-    closeBtn.style.cursor = 'pointer';
-    closeBtn.onclick = function() {
-        document.body.removeChild(popup);
-    };
 
-    popup.appendChild(closeBtn);
 
-    var buttons = [
-        { icon: 'https://i.ibb.co/WnrGTrL/Youtube.png', url: 'https://www.youtube.com/@technoYT2024', bgColor: 'white', textColor: 'black', borderColor: 'red', text: 'Youtube' },
-        { icon: 'https://i.ibb.co/RQKWsHv/Facebook.png', url: 'https://www.facebook.com/profile.php?id=100085217054240', bgColor: 'white', textColor: 'black', borderColor: 'blue', text: 'Facebook' },
-        { icon: 'https://i.ibb.co/YQkPcZB/Instagram.png', url: 'https://www.instagram.com/b.yproinsta?igshid=dGRkczlpdmo2ZnFh', bgColor: 'white', textColor: 'black', borderColor: 'orange', text: 'Instagram' },
-        { icon: 'https://i.ibb.co/nB18VVp/WhatsApp.png', url: 'https://wa.me/213795082763', bgColor: 'white', textColor: 'black', borderColor: 'green', text: 'WhatsApp' },
-        { icon: 'https://i.ibb.co/5YV1kdw/Telephone.png', url: 'tel:+213795082763', bgColor: 'white', textColor: 'black', borderColor: 'gray', text: 'Telephone' },
-        { icon: 'https://i.ibb.co/s6hByd8/Telegram.png', url: 'https://t.me/BY_PRO', bgColor: 'white', textColor: 'black', borderColor: 'blue', text: 'Telegram' }
+
+
+
+
+function sosialmedia() {
+    var popupContainer = document.createElement('div');
+    popupContainer.className = 'popup-container';
+    popupContainer.style.position = 'fixed';
+    popupContainer.style.top = '50%';
+    popupContainer.style.left = '50%';
+    popupContainer.style.bottom = '0%';
+    popupContainer.style.transform = 'translate(-50%, -50%)';
+    popupContainer.style.width = '100%'; // increase the width to 90%
+    popupContainer.style.height = '100%'; // keep the height at 90%
+    popupContainer.style.backgroundColor = 'rgba(0, 0, 0, 1)';
+    popupContainer.style.padding = '20px';
+    popupContainer.style.borderRadius = '5px';
+    popupContainer.style.color = 'white';
+    
+
+    var socialButtons = [
+        { icon: "https://i.ibb.co/WnrGTrL/Youtube.png", url: "https://www.youtube.com/@technoYT2024", backgroundColor: "white", textColor: "black", borderColor: "red", height: "80px", borderWidth: "4px", text: "Youtube" },
+        { icon: "https://i.ibb.co/RQKWsHv/Facebook.png", url: "https://www.facebook.com/profile.php?id=100085217054240", backgroundColor: "white", textColor: "black", borderColor: "blue", height: "80px", borderWidth: "4px", text: "Facebook" },
+        { icon: "https://i.ibb.co/YQkPcZB/Instagram.png", url: "https://www.instagram.com/b.yproinsta?igshid=dGRkczlpdmo2ZnFh", backgroundColor: "white", textColor: "black", borderColor: "orange", height: "80px", borderWidth: "4px", text: "Instagram" },
+        { icon: "https://i.ibb.co/nB18VVp/WhatsApp.png", url: "https://wa.me/213795082763", backgroundColor: "white", textColor: "black", borderColor: "#25D366", height: "80px", borderWidth: "4px", text: "WhatsApp" },
+        { icon: "https://cdn-icons-png.flaticon.com/128/2111/2111646.png", url: "https://web.telegram.org/", backgroundColor: "white", textColor: "black", borderColor: "blue", height: "80px", borderWidth: "4px", text: "Telegram" }
     ];
 
-    buttons.forEach(function(button) {
-        var buttonElem = document.createElement('button');
-        buttonElem.style.backgroundColor = button.bgColor;
-        buttonElem.style.color = button.textColor;
-        buttonElem.style.border = '3px solid ' + button.borderColor;
-        buttonElem.style.borderRadius = '15px';
-        buttonElem.style.width = '100%';
-        buttonElem.style.marginBottom = '10px';
-        buttonElem.style.fontWeight = 'bold';
-        buttonElem.style.backgroundImage = 'url("' + button.icon + '")';
-        buttonElem.style.backgroundSize = 'contain';
-        buttonElem.style.backgroundPosition = 'left center';
-        buttonElem.style.backgroundRepeat = 'no-repeat';
-        buttonElem.textContent = button.text;
-        buttonElem.style.paddingLeft = '30px';
-        buttonElem.style.textAlign = 'center';
-        buttonElem.style.lineHeight = '50px';
-        buttonElem.style.fontSize = '18px';
-        buttonElem.style.backgroundPositionX = '20px';
-        buttonElem.onclick = function() {
-            window.open(button.url);
-        };
+    var buttonsContainer = document.createElement('div');
+    buttonsContainer.className = 'buttons-container';
 
-        popup.appendChild(buttonElem);
+    socialButtons.forEach(function(socialButton) {
+        var button = document.createElement("button");
+        button.className = 'social-button';
+        button.style.backgroundColor = socialButton.backgroundColor;
+        button.style.color = 'black';
+        button.style.borderRadius = '70px';
+        button.style.border = '3px solid ' + socialButton.borderColor;
+        button.style.height = 'calc(100% - 40px)'; // increase button height
+        button.style.width = "calc(100% - 40px)"; // increase button width
+        button.style.margin = "25px";
+        button.style.fontWeight = "bold";
+        button.style.backgroundImage = "url('" + socialButton.icon + "')";
+        button.style.backgroundSize = "22%"; // reduce image size
+        button.style.backgroundPosition = "15px"; // adjust image position
+        button.style.backgroundRepeat = "no-repeat";
+        button.textContent = socialButton.text;
+        button.style.paddingLeft = "70px";
+        button.style.textAlign = "center";
+        button.style.lineHeight = "80px"; // adjust line height for vertical centering
+        button.style.fontSize = "20px";
+        button.onclick = function() {
+            window.open(socialButton.url);
+        };
+        buttonsContainer.appendChild(button);
     });
 
-    document.body.appendChild(popup);
+    popupContainer.appendChild(buttonsContainer);
+    document.body.appendChild(popupContainer);
 }
 
 
-    function goToHome() {
-        window.location.href = "https://yacne.github.io/Techno-app-/Techno%20app%20v5.0.html";
-    }
 
+ 
+ 
+ 
+ 
+ 
 function performAIAction() {
     var mainContainer = document.createElement('div');
     mainContainer.style.position = 'fixed';
@@ -498,6 +495,32 @@ function performAIAction() {
     iframe.src = 'https://mixerbox.ai/';
     iframe.style.width = '100%';
     iframe.style.height = '100%';
+
+    mainContainer.appendChild(iframe);
+    document.body.appendChild(mainContainer);
+}
+
+ 
+ 
+ 
+ 
+    function goToHome() {
+        window.location.href = "https://yacne.github.io/Techno-app-/Techno%20app%20v5.0.html";
+    }
+
+function performAIAction() {
+    var mainContainer = document.createElement('div');
+    mainContainer.style.position = 'fixed';
+    mainContainer.style.bottom = '50px';
+    mainContainer.style.left = '0';
+    mainContainer.style.width = '100%';
+    mainContainer.style.height = '100%';
+    mainContainer.style.border = '3px solid ';
+    mainContainer.borderRadius = '15px';
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://mixerbox.ai/';
+    iframe.style.width = '100%';
+    iframe.style.height = '94%';
 
     mainContainer.appendChild(iframe);
     document.body.appendChild(mainContainer);
