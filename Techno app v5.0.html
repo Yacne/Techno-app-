@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<meta charset="UTF-8">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -259,7 +259,7 @@ button {
 
   .close-btn {
     position: absolute;
-    top: 5px;
+    top: 5px
     right: 10px;
     font-size: 20px;
     color: red;
@@ -356,11 +356,9 @@ button {
 
   
 <div class="content" id="arabicText" style="padding: 10px; border-radius: 30px; border: 3px solid ;animation: rainbowBorder 5s infinite alternate;text-align: center;">
-  <h2>تعتبر مؤسسة B.Y PRO وجهة للدعم التقني المتكامل وإصلاح المشاكل في مجالات الحواسيب، الهواتف، البرمجيات، والبرمجة. نحن نقدم حلولًا فورية وموثوقة لجميع مشاكلك التقنية بفضل فريقنا المحترف والمتخصص. بغض النظر عن طبيعة المشكلة التقنية التي تواجهها، فإننا نضمن الاستجابة السريعة والحلول الفعالة. بالإضافة إلى ذلك، نقدم نصائح وتوجيهات مخصصة لمساعدتك في الحفاظ على أجهزتك وبرمجياتك بأفضل حال.</h2>
+  <h2>B.Y PRO is considered a destination for comprehensive technical support and troubleshooting in the fields of computers, phones, software, and programming. We provide immediate and reliable solutions to all your technical issues thanks to our professional and specialized team. Regardless of the nature of the technical problem you are facing, we guarantee quick response and effective solutions. Additionally, we offer tailored advice and guidance to help you maintain your devices and software in the best condition.</h2>
 </div>
 
-<div class="content" id="englishText" style="display: none; padding: 1px; border-radius: 30px; border: 3px solid ;animation: rainbowBorder 5s infinite alternate;text-align: center;">
-  <h2>B.Y PRO is considered a destination for comprehensive technical support and troubleshooting in the fields of computers, phones, software, and programming. We provide immediate and reliable solutions to all your technical issues thanks to our professional and specialized team. Regardless of the nature of the technical problem you are facing, we guarantee quick response and effective solutions. Additionally, we offer tailored advice and guidance to help you maintain your devices and software in the best condition.</h2>
 </div>
 
 <div class="button-container">
@@ -377,134 +375,60 @@ button {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
-    // Function to toggle dark/light mode
-    function toggleDarkLightMode() {
-        var body = document.body;
-        body.classList.toggle("dark-mode");
-    }
-
-    // Function to handle click on "New" button
-    function handleNewButtonClick() {
-        var buttonsContainer = document.querySelector('.buttons-container');
-
-        // Create buttons container if it doesn't exist
-        if (!buttonsContainer) {
-            buttonsContainer = document.createElement('div');
-            buttonsContainer.className = 'buttons-container';
-            buttonsContainer.style.position = 'fixed';
-            buttonsContainer.style.top = '0';
-            buttonsContainer.style.left = '100%';
-            buttonsContainer.style.transform = 'translateX(-100%)'; 
-            buttonsContainer.style.width = '100%'; 
-            buttonsContainer.style.height = '92vh'; 
-            buttonsContainer.style.backgroundColor = 'black'; 
-            buttonsContainer.style.opacity = '10'; 
-            buttonsContainer.style.display = 'flex';
-            buttonsContainer.style.flexDirection = 'column';
-            buttonsContainer.style.justifyContent = 'center';
-            buttonsContainer.style.alignItems = 'center';
-
-            // Hide language button if visible
-            if (langBtn.style.display !== "none") {
-                langBtn.style.display = "none";
-            }
-
-            // Button data
-            var buttonData = [
-                { text: 'Button 1', action: 'performAction1()' },
-                { text: 'Button 2', action: 'performAction2()' },
-                { text: 'Button 3', action: 'performAction3()' }
-            ];
-
-            // Create buttons
-            buttonData.forEach(data => {
-                var button = document.createElement('button');
-                button.textContent = data.text;
-                button.setAttribute('onclick', data.action);
-                button.style.padding = '10px 20px';
-                button.style.marginBottom = '10px';
-                button.style.border = 'none';
-                button.style.borderRadius = '5px';
-                button.style.backgroundColor = '#fff';
-                button.style.cursor = 'pointer';
-                buttonsContainer.appendChild(button);
-            });
-
-            // Append buttons container to body
-            document.body.appendChild(buttonsContainer);
-
-            // Animate buttons container
-            setTimeout(function() {
-                buttonsContainer.style.transform = 'translateX(0)';
-            }, 100);
-        }
-    }
-
-    // Function to close "New" button container
-    function closeNewButtonContainer() {
-        var buttonsContainer = document.querySelector('.buttons-container');
-        buttonsContainer.style.transform = 'translateX(-100%)';
-
-
-
-        // Remove buttons container after animation
-        setTimeout(function() {
-            buttonsContainer.remove();
-        }, 500);
-    }
-
-    // Function to perform action 1
-    function performAction1() {
-        alert('Action 1 performed');
-    }
-
-    // Function to perform action 2
-    function performAction2() {
-        alert('Action 2 performed');
-    }
-
-    // Function to perform action 3
-    function performAction3() {
-        alert('Action 3 performed');
-    }
-
-    // Function to show info popup
-    function showInfoPopup() {
-        var popup = document.getElementById("infoPopup");
+    function showPopup() {
+        var popup = document.getElementById("popup");
         popup.style.display = "block";
     }
 
-    // Function to close info popup
-    function closeInfoPopup() {
-        var popup = document.getElementById("infoPopup");
+    function closePopup() {
+        var popup = document.getElementById("popup");
         popup.style.display = "none";
     }
 
-    // Function to change language
-    function changeLanguage() {
-        var arabicText = document.getElementById("arabicText");
-        var englishText = document.getElementById("englishText");
+    function showInfoPopup() {
+        var infoPopup = document.getElementById("infoPopup");
+        infoPopup.style.display = "block";
+    }
 
-        if (arabicText.style.display === "none") {
-            arabicText.style.display = "block";
-            englishText.style.display = "none";
-        } else {
-            arabicText.style.display = "none";
-            englishText.style.display = "block";
-        }
+    function closeInfoPopup() {
+        var infoPopup = document.getElementById("infoPopup");
+        infoPopup.style.display = "none";
     }
-    
-    // Function to navigate to home
+
+    function handleNewButtonClick() {
+        window.location.href = "https://yacne.github.io/Techno-app-/Techno%20app%20v5.0.html";
+    }
+
     function goToHome() {
-        // Add your home page URL here
-        window.location.href = "home.html";
+        window.location.href = "https://yacne.github.io/Techno-app-/Techno%20app%20v5.0.html";
     }
-    
-    // Function to perform AI action
+
     function performAIAction() {
-        alert("AI action performed");
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://mixerbox.ai/';
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        document.body.innerHTML = '';
+        document.body.appendChild(iframe);
     }
 </script>
+
+
 </body>
 </html>
