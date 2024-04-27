@@ -4,12 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- تحديد مسار ملف CSS لـ Bootstrap -->
-<link rel="stylesheet" href="/storage/emulated/0/bootstrap-5.3.3-dist/css/bootstrap.min.css">
-<!-- تحديد مسار ملف jQuery -->
-<script src="/bootstrap-5.3.3-dist/js/jquery.min.js"></script>
-<!-- تحديد مسار ملف JavaScript لـ Bootstrap -->
-<script src="/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
 <style>
 
 
@@ -39,7 +33,7 @@ nav {
 }
 .container {
     max-width: 100%;
-    padding: 1px;
+    padding: 5px;
     display:  fixed;
     align-items: flex-start; /* يضع الصورة في الجزء العلوي من العنصر */
         max-width: 100%;
@@ -48,7 +42,7 @@ nav {
 }
 .title {
     color:white;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
     text-align: center;
     margin-left: auto; /* يوسط النص أفقيًا */
@@ -85,6 +79,9 @@ nav {
     z-index: 1002;
     border: 4px solid;
     animation: rainbowBorder 2s infinite alternate;
+    max-width: 100%;
+    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
+    padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
 }
 @keyframes rainbowBorder {
     0% { border-color: violet; }
@@ -115,9 +112,9 @@ nav {
     border-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
     padding: 20px;
     text-align: center;
-    max-width: 400px;
-    margin: 20px auto ; /* تحديد المسافة بين الشريط العلوي والنص */
-    border-radius: 15px;
+    max-width: 500px;
+    margin: 50px auto ; /* تحديد المسافة بين الشريط العلوي والنص */
+    border-radius: 7px;
     padding: 0 10px; /* إضافة هامش لتفادي الازدحام عند الحدود */
     margin-left: 10px; /* تحديد التباعد من الحافة اليسرى */
     margin-right: 10px; /* تحديد التباعد من الحافة اليمنى */
@@ -197,6 +194,15 @@ button {
     padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
 }
 
+
+
+
+
+
+
+
+
+
 </style>
 </head>
 <body>
@@ -209,7 +215,7 @@ button {
     
     <div class="title">B.Y PRO Techno app</div>
 </nav>
-  <button id="langBtn" onclick="changeLanguage()"></button>
+  
   <div class="container-1">
   
   
@@ -225,7 +231,7 @@ button {
     <img src="https://cdn-icons-png.flaticon.com/128/2327/2327648.png" alt="New Button">
 </button>
 
-    <img src="https://cdn-icons-png.flaticon.com/128/9691/9691165.png" alt="AI">
+    <img src="https://cdn-icons-png.flaticon.com/128/9691/9691165.png" onclick="performAIAction()">
     </button>
 
 
@@ -242,16 +248,19 @@ button {
   .popup {
     display: none; /* أخفي النافذة المنبثقة افتراضيًا */
     position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 50%;
+    top: 0%;
+    left: 25%;
+    width: 5%
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 1);
-    padding: 20px;
-    border-radius: 15px;
+    padding: 1px;
+    border-radius: 7px;
     color: white;
-    z-index: 1002;
-    border: 3px solid;
+    z-index: 1;
+    border: 2px solid;
+    max-width: 100%;
+    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
+    padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
   }
 
   .popup-content {
@@ -341,14 +350,14 @@ button {
         
         <div>
             <div style="text-align: center;">
-                <h2 style="color: #fff;margin-bottom: 20px;">B.Y PRO</h2>
-                <p style="color: #fff;margin-bottom: 7px;">Techno app v6.2</p>
+                <h1 style="color: #fff;margin-bottom: 20px;">B.Y PRO</h1>
+                <p style="color: #29D4ff ;margin-bottom: 10px;">Techno app v6.5</p>
             </div>
             <hr> 
-            <p style="color: #fff;margin-bottom: 5px;text-align: left;">This program is in order to communicate with us, reach us, be closer, and learn about our latest developments and services.</p>
-            <p style="color: #ff3;margin-bottom: 3px;text-align: left;">Thank you to the B.Y PRO technical support team for programming this modern and distinctive version of this application </p>
+            <p style="color: #fff;margin-bottom: 5px;text-align: center;">This program is in order to communicate with us, reach us, be closer, and learn about our latest developments and services.</p>
+            <p style="color: #ff3;margin-bottom: 3px;text-align: center;">Thank you to the B.Y PRO technical support team for programming this modern and distinctive version of this application </p>
             <div style="text-align: left;">
-            <p style="margin-bottom: 3;text-align: center;">⭐ ⭐ ⭐ ⭐ ⭐</p>
+     
             </div>
         </div>
     </div>
@@ -414,33 +423,56 @@ button {
 
 
 
+function performAIAction() {
+    var mainContainer = document.createElement('div');
+    mainContainer.style.position = 'fixed';
+    mainContainer.style.bottom = '100px';
+    mainContainer.style.left = '0%';
+    mainContainer.style.width = '99%';
+    mainContainer.style.height = '84%';
+    mainContainer.style.border = '1px solid ';
+    mainContainer.borderRadius = '1px';
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://mixerbox.ai/';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+
+    mainContainer.appendChild(iframe);
+    document.body.appendChild(mainContainer);
+}
+
+
+
+
 
 
 
 
 
 function sosialmedia() {
+    var navHeight = document.querySelector('nav').offsetHeight;
+    var windowHeight = window.innerHeight;
     var popupContainer = document.createElement('div');
     popupContainer.className = 'popup-container';
     popupContainer.style.position = 'fixed';
-    popupContainer.style.top = '50%';
-    popupContainer.style.left = '50%';
-    popupContainer.style.bottom = '0%';
-    popupContainer.style.transform = 'translate(-50%, -50%)';
-    popupContainer.style.width = '100%'; // increase the width to 90%
-    popupContainer.style.height = '100%'; // keep the height at 90%
+    popupContainer.style.top = navHeight + 'px'; // Start below the nav bar
+    popupContainer.style.left = '0';
+    popupContainer.style.bottom = '0'; // Extend to the bottom of the window
+    popupContainer.style.width = '100%';
+    popupContainer.style.height = 'calc(100% - ' + navHeight + 'px)'; // Adjust height to exclude nav bar
     popupContainer.style.backgroundColor = 'rgba(0, 0, 0, 1)';
-    popupContainer.style.padding = '20px';
-    popupContainer.style.borderRadius = '5px';
+    popupContainer.style.padding = '0px';
+    popupContainer.style.borderRadius = '0px';
     popupContainer.style.color = 'white';
-    
+    popupContainer.style.overflowY = 'auto';
 
     var socialButtons = [
-        { icon: "https://i.ibb.co/WnrGTrL/Youtube.png", url: "https://www.youtube.com/@technoYT2024", backgroundColor: "white", textColor: "black", borderColor: "red", height: "80px", borderWidth: "4px", text: "Youtube" },
-        { icon: "https://i.ibb.co/RQKWsHv/Facebook.png", url: "https://www.facebook.com/profile.php?id=100085217054240", backgroundColor: "white", textColor: "black", borderColor: "blue", height: "80px", borderWidth: "4px", text: "Facebook" },
-        { icon: "https://i.ibb.co/YQkPcZB/Instagram.png", url: "https://www.instagram.com/b.yproinsta?igshid=dGRkczlpdmo2ZnFh", backgroundColor: "white", textColor: "black", borderColor: "orange", height: "80px", borderWidth: "4px", text: "Instagram" },
-        { icon: "https://i.ibb.co/nB18VVp/WhatsApp.png", url: "https://wa.me/213795082763", backgroundColor: "white", textColor: "black", borderColor: "#25D366", height: "80px", borderWidth: "4px", text: "WhatsApp" },
-        { icon: "https://cdn-icons-png.flaticon.com/128/2111/2111646.png", url: "https://web.telegram.org/", backgroundColor: "white", textColor: "black", borderColor: "blue", height: "80px", borderWidth: "4px", text: "Telegram" }
+        { icon: "https://i.ibb.co/WnrGTrL/Youtube.png", url: "https://www.youtube.com/@technoYT2024", backgroundColor: "white", textColor: "black", borderColor: "red", height: "85px", borderWidth: "4px", text: "Youtube" },
+        { icon: "https://i.ibb.co/RQKWsHv/Facebook.png", url: "https://www.facebook.com/profile.php?id=100085217054240", backgroundColor: "white", textColor: "black", borderColor: "blue", height: "95px", borderWidth: "4px", text: "Facebook" },
+        { icon: "https://i.ibb.co/YQkPcZB/Instagram.png", url: "https://www.instagram.com/b.yproinsta?igshid=dGRkczlpdmo2ZnFh", backgroundColor: "white", textColor: "black", borderColor: "orange", height: "105px", borderWidth: "4px", text: "Instagram" },
+        { icon: "https://i.ibb.co/nB18VVp/WhatsApp.png", url: "https://wa.me/213795082763", backgroundColor: "white", textColor: "black", borderColor: "#25D366", height: "85px", borderWidth: "4px", text: "WhatsApp" },
+        { icon: "https://cdn-icons-png.flaticon.com/128/2111/2111646.png", url: "https://web.telegram.org/", backgroundColor: "white", textColor: "black", borderColor: "#00A7D2", height: "95px", borderWidth: "4px", text: "Telegram" },
+        { icon: "", url: "https://yacne.github.io/Techno-app-/Techno%20app%20v5.0.html", backgroundColor: "black", textColor: "black", borderColor: "black", height: "75px", borderWidth: "4px", text: "" }
     ];
 
     var buttonsContainer = document.createElement('div');
@@ -451,21 +483,22 @@ function sosialmedia() {
         button.className = 'social-button';
         button.style.backgroundColor = socialButton.backgroundColor;
         button.style.color = 'black';
-        button.style.borderRadius = '70px';
-        button.style.border = '3px solid ' + socialButton.borderColor;
-        button.style.height = 'calc(100% - 40px)'; // increase button height
-        button.style.width = "calc(100% - 40px)"; // increase button width
-        button.style.margin = "25px";
+        button.style.borderRadius = '7px';
+        button.style.border = socialButton.borderWidth + ' solid ' + socialButton.borderColor; // Fix border definition
+        button.style.height = socialButton.height;
+        button.style.width = "85%"; // Set button width to 80%
+        button.style.margin = "60px auto";
+        button.style.display = 'block';
         button.style.fontWeight = "bold";
         button.style.backgroundImage = "url('" + socialButton.icon + "')";
-        button.style.backgroundSize = "22%"; // reduce image size
-        button.style.backgroundPosition = "15px"; // adjust image position
+        button.style.backgroundPosition = "15px";
+        button.style.backgroundSize = "22%";
         button.style.backgroundRepeat = "no-repeat";
         button.textContent = socialButton.text;
-        button.style.paddingLeft = "70px";
+        button.style.paddingLeft = "50px";
         button.style.textAlign = "center";
-        button.style.lineHeight = "80px"; // adjust line height for vertical centering
-        button.style.fontSize = "20px";
+        button.style.lineHeight = socialButton.height;
+        button.style.fontSize = "30px";
         button.onclick = function() {
             window.open(socialButton.url);
         };
@@ -476,29 +509,10 @@ function sosialmedia() {
     document.body.appendChild(popupContainer);
 }
 
+ 
+ 
+ 
 
-
- 
- 
- 
- 
- 
-function performAIAction() {
-    var mainContainer = document.createElement('div');
-    mainContainer.style.position = 'fixed';
-    mainContainer.style.bottom = '110px';
-    mainContainer.style.left = '0';
-    mainContainer.style.width = '100%';
-    mainContainer.style.height = '100%';
-
-    var iframe = document.createElement('iframe');
-    iframe.src = 'https://mixerbox.ai/';
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-
-    mainContainer.appendChild(iframe);
-    document.body.appendChild(mainContainer);
-}
 
  
  
@@ -508,26 +522,12 @@ function performAIAction() {
         window.location.href = "https://yacne.github.io/Techno-app-/Techno%20app%20v5.0.html";
     }
 
-function performAIAction() {
-    var mainContainer = document.createElement('div');
-    mainContainer.style.position = 'fixed';
-    mainContainer.style.bottom = '50px';
-    mainContainer.style.left = '0';
-    mainContainer.style.width = '100%';
-    mainContainer.style.height = '100%';
-    mainContainer.style.border = '3px solid ';
-    mainContainer.borderRadius = '15px';
-    var iframe = document.createElement('iframe');
-    iframe.src = 'https://mixerbox.ai/';
-    iframe.style.width = '100%';
-    iframe.style.height = '94%';
 
-    mainContainer.appendChild(iframe);
-    document.body.appendChild(mainContainer);
-}
+
+
+
+
 
 </script>
-
-
 </body>
 </html>
