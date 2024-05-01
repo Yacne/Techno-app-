@@ -796,7 +796,7 @@ function toggleDarkMode() {
         // تغيير لون بوردر الصور
         images.forEach(function(image) {
             var currentColor = image.style.borderColor;
-            var newColor = currentColor === 'white' ? '#fff' : 'white';
+            var newColor = currentColor === 'white' ? '#fff' : 'black';
             image.style.borderColor = newColor;
         });
     }
