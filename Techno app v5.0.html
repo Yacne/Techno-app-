@@ -200,13 +200,285 @@ button {
 
 
 
+		
+		
+		
+		
+		
+		
+		
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    z-index: 1002;
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.popup-title {
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.popup-text {
+    color: white;
+    text-align: left;
+    margin: 50;
+    align-self: flex-start; /* يضع النص في الجزء العلوي من السطر */
+		    font-size: 20px; /* زيادة حجم الكلمة */
+}
+
+.language-dropdown {
+    position: fixed; /* جعل العنصر موضوع بشكل مطلق */
+     margin-top: 55px;
+    right: 70px; /* تحديد المسافة من اليمين */
+    font-size: 18px; /* زيادة حجم الخط */
+}
+
+
+
+.dropbtn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px; /* زيادة حجم الكلمة */
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0);
+    z-index: 1;
+    border: 5px solid rgba(0,0,0,0); /* Border color updated */
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #000;
+}
+
+		
+		
+		
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    z-index: 1002;
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.popup-title {
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+.switch {
+  float: right;
+}
+
+.dark-mode {
+  color: white;
+  text-align: left;
+  margin-top: 30px;
+  margin-left: 10px; /* تحديد المسافة من اليسار */
+  font-size: 20px;
+}
+
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 35px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 35px; /* Rounded slider */
+		
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%; /* Rounded circle */
+}
+
+/* Toggle the active state */
+input:checked + .slider:before {
+  background-color: black; /* Change circle color when active */
+}
+
+input:checked + .slider {
+  background-color: white; /* Change background color when checked */
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px white; /* Add shadow on focus */
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px); /* Move circle when checked */
+}
+
 
 
 
 </style>
 </head>
 <body>
-<nav class="btn-bar" >
+		
+
+		
+		
+<div id="popup" class="popup" style="width: 300px; height: 400px;">
+    <span class="popup-content">
+        <h2 class="popup-title" style="text-align: center; margin-top: 0;">Settings</h2>
+        <span class="close-btn" onclick="closePopup()">x</span>
+        <div class="popup-text">Language:</div>
+        <div class="language-dropdown dropdown"> <!-- إعادة إضافة الزر القائمة المنسدلة -->
+            <button onclick="toggleDropdown()" class="dropbtn">Language</button>
+            <div id="dropdownContent" class="dropdown-content">
+                <a href="#">Arabic</a>
+                <a href="#">English</a>
+                <a href="#">French</a>
+            </div>
+        </div>
+        <div class="popup-text dark-mode">Dark mode</div> <!-- إضافة النص "Dark mode" -->
+        <button class="circle-button" onclick="toggleDarkMode()"> <!-- إضافة الزر الدائري -->
+        		
+        		
+        		
+<label class="switch" style="float: right; position: fixed; right: 90px; top: 135px;">
+    <input type="checkbox" onclick="toggleDarkMode()">
+    <span class="slider"></span>
+</label>
+
+
+
+
+
+        		
+            <div class="circle"></div>
+        </button>
+    </span>
+</div>
+
+<script>
+    function closePopup() {
+        var popup = document.getElementById("popup");
+        popup.style.display = "none";
+    }
+
+    function toggleDropdown() {
+        var dropdownContent = document.getElementById("dropdownContent");
+        dropdownContent.classList.toggle("show");
+    }
+
+    function toggleDarkMode() {
+        // اضف الكود الخاص بتفعيل الوضع الليلي هنا
+    }
+</script>
+
+
+
+
+		
+
+		
+<script>
+  function showPopup() {
+    var popup = document.getElementById("popup");
+    popup.style.display = "block";
+  }
+
+  function closePopup() {
+    var popup = document.getElementById("popup");
+    popup.style.display = "none";
+  }
+</script>
+
+		
+		
+
+		
+		
+		
+		<nav class="btn-bar" >
     <img src="https://i.ibb.co/Ydq0VCK/1000072077-removebg-preview.png" alt="B.Y PRO" class="logo">
  
 
@@ -235,86 +507,14 @@ button {
     </button>
 
 
-
-
-
-
-
-
-
-
-
-<style>
-.popup {
-    display: none;
-    position: fixed;
-    top: 0; /* توسيط النافذة في الوسط */
-    left: 50%; /* توسيط النافذة بالنسبة للعرض */
-    transform: translate(-50%, -50%); /* تعديل موضع النافذة */
-    width: 200px; /* يمكنك تعديل هذه القيمة حسب حجم النافذة المرغوب */
-    height: 150px; /* يمكنك تعديل هذه القيمة حسب حجم النافذة المرغوب */
-    background-color: rgba(0, 0, 0, 1);
-    padding: 1px;
-    border-radius: 7px;
-    color: white;
-    z-index: 1;
-    border: 2px solid;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 5px;
-}
-
-
-  .close-btn {
-    position: absolute;
-    top: 5px
-    right: 10px;
-    font-size: 20px;
-    color: red;
-    cursor: pointer;
-  }
-
-  .popup-title {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    position: absolute;
-    top: 10px; /* تحديد الانخفاض من الأعلى */
-    left: 10px; /* تحديد المسافة من اليسار */
-  }
-
-  .popup-text {
-    color: white;
-    font-size: 18px; /* زيادة حجم النص */
-    font-weight: bold; /* جعل النص غليظًا */
-    text-align: left;
-    margin-left: 10px; /* تحديد المسافة من اليسار */
-    margin-top: 50px; /* تحديد المسافة من الأعلى */
-  }
-</style>
-</head>
-<body>
-
 <img src="https://cdn-icons-png.flaticon.com/128/9548/9548840.png" alt="settings" onclick="showPopup()">
-<div id="popup" class="popup" style="width: 200px; height: 150px;">
-  <span class="popup-content">
-    <span class="close-btn" onclick="closePopup()">x</span>
-    <h2 class="popup-title" style="text-align: center;">Settings</h2>
-    <p class="popup-text" style="color: white; text-align: left;">Language</p>
-  </span>
-</div>
 
-<script>
-  function showPopup() {
-    var popup = document.getElementById("popup");
-    popup.style.display = "block";
-  }
 
-  function closePopup() {
-    var popup = document.getElementById("popup");
-    popup.style.display = "none";
-  }
-</script>
+
+
+
+
+
 
 
 
@@ -348,7 +548,7 @@ button {
         
         <div>
             <div style="text-align: center;">
-                <h1 style="color: #fff;margin-bottom: 20px;">B.Y PRO</h1>
+                <h1 style="color: #fff ;margin-bottom: 20px;">B.Y PRO</h1>
                 <p style="color: #29D4ff ;margin-bottom: 10px;">Techno app v6.5</p>
             </div>
             <hr> 
@@ -541,6 +741,57 @@ function sosialmedia() {
     function goToHome() {
         window.location.href = "https://yacne.github.io/Techno-app-/Techno%20app%20v5.0.html";
     }
+
+
+
+
+
+
+
+
+
+
+function toggleDropdown() {
+    var dropdownContent = document.getElementById("dropdownContent");
+    dropdownContent.classList.toggle("show");
+}
+
+// تحديث دالة window.onclick لتحديد ما إذا كان المستخدم قد نقر خارج القائمة المنسدلة
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+
+
+function toggleDarkMode() {
+    var checkbox = document.querySelector('.switch input[type="checkbox"]');
+    var body = document.querySelector('body');
+    var headerText = document.querySelector('.title');
+    var contentText = document.querySelector('.content h2');
+
+    if (checkbox.checked) {
+        // وضع مظلم
+        body.style.backgroundColor = '#000';
+        body.style.color = '#fff';
+        headerText.style.color = '#fff'; // تحديد لون النص في الرأس
+        contentText.style.color = '#fff'; // تحديد لون النص في المحتوى
+    } else {
+        // وضع مشرق
+        body.style.backgroundColor = '#fff';
+        body.style.color = '#000';
+        headerText.style.color = '#000'; // تحديد لون النص في الرأس
+        contentText.style.color = '#000'; // تحديد لون النص في المحتوى
+    }
+}
 
 
 </script>
