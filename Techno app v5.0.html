@@ -775,21 +775,30 @@ window.onclick = function(event) {
 function toggleDarkMode() {
     var checkbox = document.querySelector('.switch input[type="checkbox"]');
     var body = document.querySelector('body');
-    var headerText = document.querySelector('.title');
-    var contentText = document.querySelector('.content h2');
+    var images = document.querySelectorAll('.button-container .button');
 
     if (checkbox.checked) {
         // وضع مظلم
         body.style.backgroundColor = '#000';
-        body.style.color = '#fff';
-        headerText.style.color = '#fff'; // تحديد لون النص في الرأس
-        contentText.style.color = '#fff'; // تحديد لون النص في المحتوى
+        body.style.color = '#000';
+
+        // تغيير لون بوردر الصور
+        images.forEach(function(image) {
+            var currentColor = image.style.borderColor;
+            var newColor = currentColor === 'gray' ? '#fff' : 'gray';
+            image.style.borderColor = newColor;
+        });
     } else {
         // وضع مشرق
         body.style.backgroundColor = '#fff';
         body.style.color = '#000';
-        headerText.style.color = '#000'; // تحديد لون النص في الرأس
-        contentText.style.color = '#000'; // تحديد لون النص في المحتوى
+
+        // تغيير لون بوردر الصور
+        images.forEach(function(image) {
+            var currentColor = image.style.borderColor;
+            var newColor = currentColor === 'white' ? '#fff' : 'white';
+            image.style.borderColor = newColor;
+        });
     }
 }
 
