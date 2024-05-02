@@ -23,13 +23,18 @@ body {
 }
 nav {
     position:fixed;
-    top:0;
+    top: 0;
     background-color: #000;
     height: 32px;
-    width: 100%;
-        max-width: 100%;
+    width: 95%;
+		max-width: 130%;
     margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
     padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
+		    border: 1px solid; 
+		border-radius: 50px;
+    color: white;
+		    margin-left: 5px;
+		 top: 3px;
 }
 .container {
     max-width: 100%;
@@ -87,36 +92,29 @@ nav {
 }
 @keyframes rainbowBorder {
     0% { border-color: violet; }
-    16.7% { border-color: indigo; }
-    33.3% { border-color: blue; }
+    16.5% { border-color: indigo; }
+    33.5% { border-color: blue; }
     50% { border-color: green; }
-    66.6% { border-color: yellow; }
-    83.3% { border-color: orange; }
+    66.5% { border-color: yellow; }
+    83.5% { border-color: orange; }
     100% { border-color: red; }
 }
 .popup-content {
     display: flex;
     align-items: center;
 }
-.close-btn {
-    position: absolute;
-    top: 0.5px;
-    right: 10px;
-    font-size: 30px;
-    color: red;
-    cursor: pointer;
-}
+
 
 
 .content {
     background-color: #fff;
-    border: 15px ridge; /* تغيير البوردر إلى ridge */
+    border: 1px ridge; /* تغيير البوردر إلى ridge */
     border-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
-    padding: 20px;
+    padding: 10px;
     text-align: center;
-    max-width: 500px;
+    max-width: 400px;
     margin: 50px auto ; /* تحديد المسافة بين الشريط العلوي والنص */
-    border-radius: 7px;
+    border-radius: 5px;
     padding: 0 10px; /* إضافة هامش لتفادي الازدحام عند الحدود */
     margin-left: 10px; /* تحديد التباعد من الحافة اليسرى */
     margin-right: 10px; /* تحديد التباعد من الحافة اليمنى */
@@ -143,7 +141,7 @@ nav {
     width: 100px;
     height: 100px;
     border-radius: 15px;
-    border: 2px solid;
+    border: 3px solid;
     margin: 30px; /* تحديد المسافة بين الأزرار */
     padding: 20px;
     overflow: hidden; /* حفظ التصميم ومنع التشوه */
@@ -395,7 +393,9 @@ input:checked + .slider:before {
   transform: translateX(26px); /* Move circle when checked */
 }
 
-
+    max-width: 100%;
+    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
+    padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
 
 
 </style>
@@ -408,7 +408,12 @@ input:checked + .slider:before {
 <div id="popup" class="popup" style="width: 300px; height: 400px;">
     <span class="popup-content">
         <h2 class="popup-title" style="text-align: center; margin-top: 0;">Settings</h2>
-        <span class="close-btn" onclick="closePopup()">x</span>
+       
+
+<span class="close-btn" onclick="closePopup()" style="position: absolute; top: 7px; right: 7px;">
+    <img src="https://cdn-icons-png.flaticon.com/128/14025/14025871.png" style="width: 20px; height: auto;">
+</span>
+
         <div class="popup-text">Language:</div>
         <div class="language-dropdown dropdown"> <!-- إعادة إضافة الزر القائمة المنسدلة -->
             <button onclick="toggleDropdown()" class="dropbtn">Language</button>
@@ -482,7 +487,7 @@ input:checked + .slider:before {
     <img src="https://i.ibb.co/Ydq0VCK/1000072077-removebg-preview.png" alt="B.Y PRO" class="logo">
  
 
-    <img src="https://i.ibb.co/ZxH3j9W/1000057452-removebg-preview.png" alt="Logo" style="position: fixed; top: 0; right: 0; margin-right: 5px; width: 30px; height: auto;">
+    <img src="https://i.ibb.co/ZxH3j9W/1000057452-removebg-preview.png" alt="Logo" style="position: fixed; top: 1; right:0;  margin-right: 3px; width: 30px; height: auto;">
 
     
     <div class="title">B.Y PRO Techno app</div>
@@ -540,16 +545,20 @@ input:checked + .slider:before {
 
 <div class="info-popup" id="infoPopup">
     <div class="popup-content">
-        <span class="close-btn" onclick="closeInfoPopup()">x</span>
-        
-        
-        
-        
-        
+  
+    		
+    		
+    		
+
+<span class="close-btn" onclick="closeInfoPopup()" style="position: absolute; top: 7px; right: 7px;">
+    <img src="https://cdn-icons-png.flaticon.com/128/14025/14025871.png" style="width: 20px; height: auto;">
+</span>
+
+    		
         <div>
             <div style="text-align: center;">
                 <h1 style="color: #fff ;margin-bottom: 20px;">B.Y PRO</h1>
-                <p style="color: #29D4ff ;margin-bottom: 10px;">Techno app v6.5</p>
+                <p style="color: #29D4ff ;margin-bottom: 10px;">Techno app v7.4</p>
             </div>
             <hr> 
             <p style="color: #fff;margin-bottom: 5px;text-align: center;">This program is in order to communicate with us, reach us, be closer, and learn about our latest developments and services.</p>
@@ -579,11 +588,12 @@ input:checked + .slider:before {
 </div>
 
 
-<img src="https://i.ibb.co/yXkBDfR/kmc-20240420-093454.png" alt="kmc-20240420-093454" border="0" style="max-width: 100%; margin-top: 20px; margin-bottom: 20px;">
-
-
-
-
+<img src="https://i.ibb.co/yXkBDfR/kmc-20240420-093454.png" alt="kmc-20240420-093454" style="max-width: 100%; border-radius: 7px;
+    border: 3px solid;
+    width: 98%;
+        max-width: 100%;
+    color: white;
+margin-top: 10px; margin-bottom: 20px;">
 
 
 
@@ -604,10 +614,10 @@ input:checked + .slider:before {
         popup.style.display = "block";
     }
 
-    function closePopup() {
-        var popup = document.getElementById("popup");
-        popup.style.display = "none";
-    }
+function closePopup() {
+    var popup = document.getElementById("popup");
+    popup.style.display = "none";
+}
 
     function showInfoPopup() {
         var infoPopup = document.getElementById("infoPopup");
