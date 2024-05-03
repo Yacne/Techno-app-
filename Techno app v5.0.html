@@ -13,6 +13,10 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     height:1125px;
+		    max-width: 100%;
+    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
+    padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
+    
   
 }
 .container {
@@ -21,30 +25,47 @@ body {
     padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
     
 }
+
 nav {
-    position:fixed;
+		display: flex;
+    justify-content: center; 
+    align-items: center; /* توسيط العنصر الداخلي رأسيًا */
+    position: fixed;
     top: 0;
     background-color: #000;
     height: 32px;
-    width: 95%;
-		max-width: 130%;
-    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
-    padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
-		    border: 1px solid; 
+    width: 93%;
+		max-width: 93%;
+    margin: 0 auto; /* توسيط العنصر الخارجي في الوسط */
+    padding: 0 5px; 
+		border: 1px solid; 
 		border-radius: 50px;
     color: white;
 		    margin-left: 5px;
 		 top: 3px;
 		    z-index: 1;
 }
+
 .container {
     max-width: 100%;
     padding: 5px;
-    display:  fixed;
-    align-items: flex-start; /* يضع الصورة في الجزء العلوي من العنصر */
-        max-width: 100%;
-    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
-    padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
+    display: flex; /* استخدم display: flex لتحقيق المحاذاة */
+    align-items: flex-start;
+    justify-content: center; /* يوسط العناصر أفقيًا */
+}
+
+.title {
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    margin-left: auto; /* يوسط الشعار أفقيًا */
+    margin-right: auto;
 }
 .title {
     color:white;
@@ -63,6 +84,8 @@ nav {
     height: auto;
     z-index: 1;
 }
+
+		
 
 .info-btn {
     right: 30px; /* قمت بتغيير القيمة هنا */
@@ -485,16 +508,17 @@ input:checked + .slider:before {
 
 		
 		
-		
 		<nav class="btn-bar" >
     <img src="https://i.ibb.co/Ydq0VCK/1000072077-removebg-preview.png" alt="B.Y PRO" class="logo">
  
 
-    <img src="https://i.ibb.co/ZxH3j9W/1000057452-removebg-preview.png" alt="Logo" style="position: fixed; top: 1; right:0;  margin-right: 3px; width: 30px; height: auto;">
+    <img src="https://i.ibb.co/ZxH3j9W/1000057452-removebg-preview.png" alt="Logo" style="position: fixed; top: 1; right:0;  margin-right: 13px; width: 30px; height: auto;">
 
     
     <div class="title">B.Y PRO Techno app</div>
 </nav>
+
+
   
   <div class="container-1">
   
@@ -519,26 +543,7 @@ input:checked + .slider:before {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+				
 
     
     
@@ -663,17 +668,16 @@ function performAIAction() {
 
 
 function sosialmedia() {
-    var navHeight = document.querySelector('nav').offsetHeight;
-    var windowHeight = window.innerHeight;
+
     var popupContainer = document.createElement('div');
     popupContainer.className = 'popup-container';
     popupContainer.style.position = 'fixed';
-    popupContainer.style.top = navHeight + 'px'; // Start below the nav bar
+
     popupContainer.style.left = '0';
     popupContainer.style.bottom = '0'; // Extend to the bottom of the window
     popupContainer.style.width = '100%';
-    popupContainer.style.height = 'calc(100% - ' + navHeight + 'px)'; // Adjust height to exclude nav bar
-    popupContainer.style.backgroundColor = 'rgba(1, 1, 1,1)';
+    popupContainer.style.height = '100%';
+    popupContainer.style.backgroundColor ='rgba(1, 1, 1,1)';
     popupContainer.style.padding = '0px';
     popupContainer.style.borderRadius = '0px';
     popupContainer.style.color = 'white';
