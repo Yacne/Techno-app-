@@ -877,7 +877,6 @@ function toggleDarkMode() {
 
 
 <style>
-
 .Announce-popup {
     display: flex;
     align-items: center;
@@ -888,18 +887,21 @@ function toggleDarkMode() {
     transform: translate(-50%, -50%);
     width: 85vw; /* استخدم وحدة العرض النسبية */
     height: 70vh; /* استخدم وحدة الارتفاع النسبية */
+    max-width: 500px; /* حدد العرض الأقصى المسموح به */
+    max-height: 500px; /* حدد الارتفاع الأقصى المسموح به */
     background-color: white;
-    padding: 5vw; /* استخدم وحدة العرض النسبية */
-    border: 3px solid red;
+    padding: 5px; /* تقليل البادينغ لجعل العناصر أصغر */
+    border: 3px solid red; /* تغيير لون البوردر إلى أحمر */
     border-radius: 10px;
     color: black;
     z-index: 1;
+    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
 }
 
 .Announcepopup-content {
     text-align: center;
-    font-size: 1em;
-    color: black;
+    font-size: 1em; /* تقليل حجم النص */
+    color: black; /* تعيين لون النص إلى الأسود */
 }
 
 .close-btn {
@@ -908,6 +910,7 @@ function toggleDarkMode() {
     right: 3px;
     cursor: pointer;
 }
+
 
 </style>
 <script>
