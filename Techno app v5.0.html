@@ -698,9 +698,9 @@ function sosialmedia() {
 		
         { icon: "https://cdn-icons-png.flaticon.com/128/5968/5968830.png", url: "https://twitter.com/Yacinebenm81049", backgroundColor: "white", textColor: "black", borderColor: "gray", height: "95px", borderWidth: "5px", text: "X (Twitter)" },
 		
-		 { icon: "", url: "www.linkedin.com/in/ b-y-pro-519940263", backgroundColor: "white", textColor: "black", borderColor: "#00A7e0", height: "95px", borderWidth: "4px", text: "Linkedin" },
+		 { icon: "https://cdn-icons-png.flaticon.com/128/15713/15713416.png", url: "www.linkedin.com/in/ b-y-pro-519940263", backgroundColor: "white", textColor: "black", borderColor: "#00A7e0", height: "95px", borderWidth: "4px", text: "Linkedin" },
 		
-		 { icon: "", url: "http://tiktok.com/@b.yprotiktok", backgroundColor: "white", textColor: 'pink', borderColor: "pink", height: "95px", borderWidth: "4px", text: "Tiktok" },
+		 { icon: "https://cdn-icons-png.flaticon.com/128/15713/15713399.png", url: "http://tiktok.com/@b.yprotiktok", backgroundColor: "white", textColor: 'pink', borderColor: "pink", height: "95px", borderWidth: "4px", text: "Tiktok" },
 		
         { icon: "", url: "https://yacne.github.io/Techno-app-/Techno%20app%20v5.0.html", backgroundColor: "black", textColor: "black", borderColor: "black", height: "95px", borderWidth: "4px", text: "" },
     ];
@@ -877,6 +877,7 @@ function toggleDarkMode() {
 
 
 <style>
+
 .Announce-popup {
     display: flex;
     align-items: center;
@@ -885,44 +886,30 @@ function toggleDarkMode() {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 85%;
-    height: 70%;
+    width: 85vw; /* استخدم وحدة العرض النسبية */
+    height: 70vh; /* استخدم وحدة الارتفاع النسبية */
     background-color: white;
-    padding: 5%; /* تقليل البادينغ لجعل العناصر أصغر */
-    border: 3px solid red; /* تغيير لون البوردر إلى أحمر */
+    padding: 5vw; /* استخدم وحدة العرض النسبية */
+    border: 3px solid red;
     border-radius: 10px;
-    color: white;
+    color: black;
     z-index: 1;
-		    max-width: 100%;
-    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
-    padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
-    
 }
-
 
 .Announcepopup-content {
     text-align: center;
-    font-size: 1em; /* تقليل حجم النص */
-    color: black; /* تعيين لون النص إلى الأسود */
-		    max-width: 100%;
-    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
-    padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
-    
+    font-size: 1em;
+    color: black;
 }
-
 
 .close-btn {
     position: absolute;
     top: 7px;
     right: 3px;
     cursor: pointer;
-		    max-width: 100%;
-    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
-    padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
-    
 }
-</style>
 
+</style>
 <script>
 function closeAnnouncePopup() {
     var popup = document.getElementById('AnnouncePopup');
