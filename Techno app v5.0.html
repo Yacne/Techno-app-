@@ -259,7 +259,7 @@ button {
 
 .popup-text {
     color: white;
-    text-align: left;
+    margin-left: 10px; /* تحديد المسافة من اليسار */
     margin: 50;
     align-self: flex-start; /* يضع النص في الجزء العلوي من السطر */
 		    font-size: 20px; /* زيادة حجم الكلمة */
@@ -434,15 +434,13 @@ input:checked + .slider:before {
 		
 
 		
-		
-<div id="popup" class="popup" style="width: 300px; height: 400px;">
+		<div id="popup" class="popup" style="width: 300px; height: 300px;">
     <span class="popup-content">
         <h2 class="popup-title" style="text-align: center; margin-top: 0;">Settings</h2>
        
-
-<span class="close-btn" onclick="closePopup()" style="position: absolute; top: 7px; right: 7px;">
-    <img src="https://cdn-icons-png.flaticon.com/128/14025/14025871.png" style="width: 20px; height: auto;">
-</span>
+        <span class="close-btn" onclick="closePopup()" style="position: absolute; top: 7px; right: 7px;">
+            <img src="https://cdn-icons-png.flaticon.com/128/14025/14025871.png" style="width: 20px; height: auto;">
+        </span>
 
         <div class="popup-text">Language:</div>
         <div class="language-dropdown dropdown"> <!-- إعادة إضافة الزر القائمة المنسدلة -->
@@ -453,23 +451,25 @@ input:checked + .slider:before {
                 <a href="#">French</a>
             </div>
         </div>
-        <div class="popup-text dark-mode">Dark mode</div> <!-- إضافة النص "Dark mode" -->
+
+        <div class="popup-text dark-mode" style=" top: 35px;">Dark mode :</div> <!-- إضافة النص "Dark mode" وتعديل الارتفاع -->
         <button class="circle-button" onclick="toggleDarkMode()"> <!-- إضافة الزر الدائري -->
-        		
-        		
-        		
-<label class="switch" style="float: right; position: fixed; right: 90px; top: 135px;">
-    <input type="checkbox" onclick="toggleDarkMode()">
-    <span class="slider"></span>
-</label>
-
-
-
-
-
-        		
+            <label class="switch" style="float: right; position: fixed; right: 90px; top: 135px;">
+                <input type="checkbox" onclick="toggleDarkMode()">
+                <span class="slider"></span>
+            </label>
             <div class="circle"></div>
         </button>
+
+        <!-- إضافة النص تحت كلمة "Dark mode" -->
+        <div class="copy-link-text">
+            <p style="font-weight: bold; margin-top: 40px; cursor: pointer;" onclick="copyLinkToClipboard()">Copy the application download link      ></p>
+        		<br> 		<hr>
+        		
+        		<p  align="center" style="font-weight: bold; margin-top: 25px;" onclick="showInfoPopup()">Show Info this application ></p>
+
+        		
+        </div>
     </span>
 </div>
 
@@ -484,31 +484,20 @@ input:checked + .slider:before {
         dropdownContent.classList.toggle("show");
     }
 
-    function toggleDarkMode() {
-        // اضف الكود الخاص بتفعيل الوضع الليلي هنا
-    }
+
+    // الدالة لنسخ الرابط إلى الحافظة
+function copyLinkToClipboard() {
+    var link = "https://www.mediafire.com/file/3h3vb36i19t9hyg/Techno+app+{Last+version}.apk/file";
+    var tempInput = document.createElement("input");
+    document.body.appendChild(tempInput);
+    tempInput.value = link;
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+}
+
 </script>
 
-
-
-
-		
-
-		
-<script>
-  function showPopup() {
-    var popup = document.getElementById("popup");
-    popup.style.display = "block";
-  }
-
-  function closePopup() {
-    var popup = document.getElementById("popup");
-    popup.style.display = "none";
-  }
-</script>
-
-		
-		
 
 		
 		
@@ -534,7 +523,7 @@ input:checked + .slider:before {
 
 
 
-    
+        
 <button onclick="sosialmedia()">
     <img src="https://cdn-icons-png.flaticon.com/128/2327/2327648.png" alt="New Button">
 </button>
@@ -543,15 +532,20 @@ input:checked + .slider:before {
     </button>
 
 
+
+    
+</span>
+    <img src="https://cdn-icons-png.flaticon.com/128/13895/13895198.png" onclick="showSearchPopup()">
+    </button>
+
+
+
 <img src="https://cdn-icons-png.flaticon.com/128/9548/9548840.png" alt="settings" onclick="showPopup()">
 
 
 
 				
 
-    
-    
-    <img src="https://cdn-icons-png.flaticon.com/128/9397/9397477.png" class="info-btn" onclick="showInfoPopup()">
   </div>
   
 
@@ -582,7 +576,6 @@ input:checked + .slider:before {
     </div>
 </div>
 
-
   
 <div class="content" id="arabicText" style="padding: 10px; border-radius: 30px; border: 3px solid ;animation: rainbowBorder 5s infinite alternate;text-align: center;">
   <h2>B.Y PRO is considered a destination for comprehensive technical support and troubleshooting in the fields of computers, phones, software, and programming. We provide immediate and reliable solutions to all your technical issues thanks to our professional and specialized team. Regardless of the nature of the technical problem you are facing, we guarantee quick response and effective solutions. Additionally, we offer tailored advice and guidance to help you maintain your devices and software in the best condition.</h2>
@@ -606,6 +599,7 @@ input:checked + .slider:before {
         max-width: 100%;
     color: white;
 margin-top: 10px; margin-bottom: 20px;">
+
 
 
 
