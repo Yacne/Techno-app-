@@ -266,6 +266,7 @@ button {
 }
 
 .language-dropdown {
+		    z-index: 1;
     position: fixed; /* جعل العنصر موضوع بشكل مطلق */
      margin-top: 55px;
     right: 70px; /* تحديد المسافة من اليمين */
@@ -275,6 +276,7 @@ button {
 
 
 .dropbtn {
+		    z-index: 1;
     background-color: black;
     color: white;
     border: none;
@@ -287,11 +289,11 @@ button {
 
 .dropdown-content {
     display: none;
+		    z-index: 1;
     position: absolute;
     background-color: black;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0);
-    z-index: 1;
     border: 5px solid rgba(0,0,0,0); /* Border color updated */
 }
 
@@ -300,10 +302,12 @@ button {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+		    z-index: 1;
 }
 
 .dropdown-content a:hover {
     background-color: #;
+		    z-index: 1;
 }
 
 .dropdown:hover .dropdown-content {
@@ -327,7 +331,7 @@ button {
     padding: 20px;
     border-radius: 15px;
     color: white;
-    z-index: 1002;
+    z-index: 1;
 }
 
 .popup-content {
@@ -566,7 +570,7 @@ input:checked + .slider:before {
         <div>
             <div style="text-align: center;">
                 <h1 style="color: #fff ;margin-bottom: 20px;">B.Y PRO</h1>
-                <p style="color: #29D4ff ;margin-bottom: 10px;">Techno app v7.4</p>
+                <p style="color: #29D4ff ;margin-bottom: 10px;">Techno app v8.6</p>
             </div>
             <hr> 
             <p style="color: #fff;margin-bottom: 5px;text-align: center;">This program is in order to communicate with us, reach us, be closer, and learn about our latest developments and services.</p>
@@ -643,6 +647,7 @@ function performAIAction() {
     mainContainer.style.position = 'fixed';
     mainContainer.style.top = '0px'; // ارتفاع شريط الـ nav
     mainContainer.style.bottom = '80px'; // ارتفاع الأزرار السفلية
+		
     mainContainer.style.left = '0%';
     mainContainer.style.width = '99%';
     mainContainer.style.height = 'calc(100% - 100px)'; // ارتفاع النافذة من تحت شريط الـ nav لفوق الأزرار السفلية
@@ -689,9 +694,15 @@ function sosialmedia() {
         { icon: "https://i.ibb.co/WnrGTrL/Youtube.png", url: "https://www.youtube.com/@technoYT2024", backgroundColor: "white", textColor: "black", borderColor: "red", height: "95px", borderWidth: "4px", text: "Youtube" },
         { icon: "https://i.ibb.co/YQkPcZB/Instagram.png", url: "https://www.instagram.com/b.yproinsta?igshid=dGRkczlpdmo2ZnFh", backgroundColor: "white", textColor: "black", borderColor: "orange", height: "95px", borderWidth: "4px", text: "Instagram" },
         { icon: "https://i.ibb.co/nB18VVp/WhatsApp.png", url: "https://wa.me/213795082763", backgroundColor: "white", textColor: "black", borderColor: "#25D366", height: "95px", borderWidth: "4px", text: "WhatsApp" },
-        { icon: "https://cdn-icons-png.flaticon.com/128/2111/2111646.png", url: "t.me/BYPROtlgrm", backgroundColor: "white", textColor: "black", borderColor: "#00A7e0", height: "95px", borderWidth: "4px", text: "Telegram" },
+        { icon: "https://cdn-icons-png.flaticon.com/128/2111/2111646.png", url: "t.me/BYPROtlgrm", backgroundColor: "white", textColor: "black", borderColor: "#10F9e9", height: "95px", borderWidth: "4px", text: "Telegram" },
+		
         { icon: "https://cdn-icons-png.flaticon.com/128/5968/5968830.png", url: "https://twitter.com/Yacinebenm81049", backgroundColor: "white", textColor: "black", borderColor: "gray", height: "95px", borderWidth: "5px", text: "X (Twitter)" },
-        { icon: "", url: "https://yacne.github.io/Techno-app-/Techno%20app%20v5.0.html", backgroundColor: "black", textColor: "black", borderColor: "black", height: "50px", borderWidth: "4px", text: "" }
+		
+		 { icon: "", url: "www.linkedin.com/in/ b-y-pro-519940263", backgroundColor: "white", textColor: "black", borderColor: "#00A7e0", height: "95px", borderWidth: "4px", text: "Linkedin" },
+		
+		 { icon: "", url: "http://tiktok.com/@b.yprotiktok", backgroundColor: "white", textColor: 'pink', borderColor: "pink", height: "95px", borderWidth: "4px", text: "Tiktok" },
+		
+        { icon: "", url: "https://yacne.github.io/Techno-app-/Techno%20app%20v5.0.html", backgroundColor: "black", textColor: "black", borderColor: "black", height: "95px", borderWidth: "4px", text: "" },
     ];
 
     var buttonsContainer = document.createElement('div');
@@ -820,8 +831,122 @@ function toggleDarkMode() {
         });
     }
 }
+</script>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="Announce-popup" id="AnnouncePopup">
+    <div class="Announcepopup-content">
+        <span class="close-btn" onclick="closeAnnouncePopup()">
+            <img src="https://cdn-icons-png.flaticon.com/128/14025/14025871.png" style="width: 20px; height: auto;">
+        </span>
+        <div>
+            <div style="text-align: center;">
+            		<br>
+                <h2>Announces and Publications</h2>
+            </div>
+        		<hr>
+            
+        		<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2F100085217054240%2Fposts%2F399285642922001%2F&show_text=true&width=500" width="330" height="305" style="border:none; overflow:hidden; border-radius: 7px;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+
+            
+            <p>For more information about this, contact us directly from this application.</p>
+            <div style="text-align: center;">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+.Announce-popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    height: 70%;
+    background-color: white;
+    padding: 5%; /* تقليل البادينغ لجعل العناصر أصغر */
+    border: 3px solid red; /* تغيير لون البوردر إلى أحمر */
+    border-radius: 10px;
+    color: white;
+    z-index: 1;
+		    max-width: 100%;
+    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
+    padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
+    
+}
+
+
+.Announcepopup-content {
+    text-align: center;
+    font-size: 1em; /* تقليل حجم النص */
+    color: black; /* تعيين لون النص إلى الأسود */
+		    max-width: 100%;
+    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
+    padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
+    
+}
+
+
+.close-btn {
+    position: absolute;
+    top: 7px;
+    right: 3px;
+    cursor: pointer;
+		    max-width: 100%;
+    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
+    padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
+    
+}
+</style>
+
+<script>
+function closeAnnouncePopup() {
+    var popup = document.getElementById('AnnouncePopup');
+    popup.style.display = 'none';
+}
+
+window.onload = function() {
+    var popup = document.getElementById('AnnouncePopup');
+    popup.style.display = 'block';
+};
 
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
