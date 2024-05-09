@@ -5,19 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-
-
 body {
     background-color: #fff;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    height:1125px;
+    height:1120px;
 		    max-width: 100%;
     margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
     padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
-    
-  
+		
 }
 .container {
     max-width: 100%;
@@ -27,11 +24,11 @@ body {
 }
 
 nav {
-		display: flex;
+		display: fixed;
     justify-content: center; 
     align-items: center; /* توسيط العنصر الداخلي رأسيًا */
     position: fixed;
-    top: 0;
+    
     background-color: #000;
     height: 32px;
     width: 93%;
@@ -41,7 +38,7 @@ nav {
 		border: 1px solid; 
 		border-radius: 50px;
     color: white;
-		    margin-left: 5px;
+		    margin-left: 1%;
 		 top: 3px;
 		    z-index: 1;
 }
@@ -52,17 +49,15 @@ nav {
     display: flex; /* استخدم display: flex لتحقيق المحاذاة */
     align-items: flex-start;
     justify-content: center; /* يوسط العناصر أفقيًا */
+		max-width: 100%;
+    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
+    padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
 }
 
-.title {
-    color: white;
-    font-size: 23px;
-    font-weight: bold;
-    text-align: center;
-}
+
 
 .logo {
-    width: 50px;
+    width: 50%;
     height: auto;
     margin-left: auto; /* يوسط الشعار أفقيًا */
     margin-right: auto;
@@ -87,14 +82,7 @@ nav {
 
 		
 
-.info-btn {
-    right: 30px; /* قمت بتغيير القيمة هنا */
-    border: none;
-    padding:5px;
-    cursor: pointer;
-    width: 150px;
-    height: 150px;
-}
+
 
 .info-popup {
     display: none; /* أخفي النافذة المنبثقة افتراضيًا */
@@ -134,10 +122,10 @@ nav {
     background-color: #fff;
     border: 1px ridge; /* تغيير البوردر إلى ridge */
     border-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
-    padding: 10px;
+    padding: 10%;
     text-align: center;
-    max-width: 400px;
-    margin: 50px auto ; /* تحديد المسافة بين الشريط العلوي والنص */
+    max-width: 400%;
+    margin: 15% auto ; /* تحديد المسافة بين الشريط العلوي والنص */
     border-radius: 5px;
     padding: 0 10px; /* إضافة هامش لتفادي الازدحام عند الحدود */
     margin-left: 10px; /* تحديد التباعد من الحافة اليسرى */
@@ -155,11 +143,9 @@ nav {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    margin-top: 20px;
+    margin-top: 10%;
 }
-
-
-
+		
 
 .button {
     width: 100px;
@@ -167,26 +153,22 @@ nav {
     border-radius: 15px;
     border: 3px solid;
     margin: 30px; /* تحديد المسافة بين الأزرار */
-    padding: 20px;
+    padding: 5%;
     overflow: hidden; /* حفظ التصميم ومنع التشوه */
 }
-
-
-
-
-
+		
 
 .container-1 {
     display: flex;
     justify-content: center; /* توسيط العنصر الداخلي أفقيًا */
     align-items: center; /* توسيط العنصر الداخلي رأسيًا */
     position: fixed;
-    bottom: 10px;
+    bottom: 1%;
     left: 50%;
     transform: translateX(-50%);
     background: black;
     width: 93%;
-    height: 75px;
+    height: 70px;
     z-index: 1;
     border-radius: 15px;
     border: 3px solid;
@@ -195,10 +177,7 @@ nav {
     margin: 0 auto; /* توسيط العنصر الخارجي في الوسط */
     padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
 }
-
-
-
-
+		
 button {
     background:transparent;
     border:none;
@@ -217,17 +196,6 @@ button {
     margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
     padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
 }
-
-
-
-
-
-		
-		
-		
-		
-		
-		
 		
 .popup {
     display: none;
@@ -426,13 +394,10 @@ input:checked + .slider:before {
     max-width: 100%;
     margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
     padding: 0 5px; /* إضافة هامش لتفادي الازدحام عند الحدود */
-
-
+		
 </style>
 </head>
 <body>
-		
-
 		
 		<div id="popup" class="popup" style="width: 300px; height: 300px;">
     <span class="popup-content">
@@ -446,9 +411,9 @@ input:checked + .slider:before {
         <div class="language-dropdown dropdown"> <!-- إعادة إضافة الزر القائمة المنسدلة -->
             <button onclick="toggleDropdown()" class="dropbtn">Language</button>
             <div id="dropdownContent" class="dropdown-content">
-                <a href="#">Arabic</a>
+                <a href="#">العربية</a>
                 <a href="#">English</a>
-                <a href="#">French</a>
+                <a href="#">Français</a>
             </div>
         </div>
 
@@ -473,33 +438,6 @@ input:checked + .slider:before {
     </span>
 </div>
 
-<script>
-    function closePopup() {
-        var popup = document.getElementById("popup");
-        popup.style.display = "none";
-    }
-
-    function toggleDropdown() {
-        var dropdownContent = document.getElementById("dropdownContent");
-        dropdownContent.classList.toggle("show");
-    }
-
-
-    // الدالة لنسخ الرابط إلى الحافظة
-function copyLinkToClipboard() {
-    var link = "https://www.mediafire.com/file/3h3vb36i19t9hyg/Techno+app+{Last+version}.apk/file";
-    var tempInput = document.createElement("input");
-    document.body.appendChild(tempInput);
-    tempInput.value = link;
-    tempInput.select();
-    document.execCommand("copy");
-    document.body.removeChild(tempInput);
-}
-
-</script>
-
-
-		
 		
 		<nav class="btn-bar" >
     <img src="https://i.ibb.co/Ydq0VCK/1000072077-removebg-preview.png" alt="B.Y PRO" class="logo">
@@ -515,14 +453,10 @@ function copyLinkToClipboard() {
   
   <div class="container-1">
   
-  
-  
-  
+  		
     <img src="https://cdn-icons-png.flaticon.com/128/11608/11608481.png" alt="Home" onclick="goToHome()">
 
-
-
-
+  		
         
 <button onclick="sosialmedia()">
     <img src="https://cdn-icons-png.flaticon.com/128/2327/2327648.png" alt="New Button">
@@ -530,34 +464,22 @@ function copyLinkToClipboard() {
 
     <img src="https://cdn-icons-png.flaticon.com/128/9691/9691165.png" onclick="performAIAction()">
     </button>
-
-
-
     
 </span>
-    <img src="https://cdn-icons-png.flaticon.com/128/13895/13895198.png" onclick="showSearchPopup()">
-    </button>
 
-
+<img src="https://cdn-icons-png.flaticon.com/128/13895/13895198.png" onclick="showSearchPopup()">
 
 <img src="https://cdn-icons-png.flaticon.com/128/9548/9548840.png" alt="settings" onclick="showPopup()">
 
-
-
-				
-
   </div>
-  
 
 <div class="info-popup" id="infoPopup">
     <div class="popup-content">
-  
     		
-    		
-    		
-
 <span class="close-btn" onclick="closeInfoPopup()" style="position: absolute; top: 7px; right: 7px;">
+		
     <img src="https://cdn-icons-png.flaticon.com/128/14025/14025871.png" style="width: 20px; height: auto;">
+		
 </span>
 
     		
@@ -614,7 +536,203 @@ margin-top: 10px; margin-bottom: 20px;">
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="searchPopup" class="search-popup">
+		
+<img src="https://cdn-icons-png.flaticon.com/128/13895/13895198.png" style="width: 10%;
+		height: Auto;position: fixed;top: 8.1%;left: 85%;"  aonclick="search()">
+
+    <div class="popup-content">
+        <input type="text" placeholder="Search...">
+    </div>
+</div>
+
+<style>
+.search-popup {
+    display: none;
+		 width: 100%;
+		height: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffff; /* لون الخلفية بيضاء */
+    padding: 5px;
+    border-radius: 7px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    border: 2px solid #50bbee; /* لون بوردر أزرق فاتح */
+		
+}
+
+.popup-content {
+    text-align: center;
+}
+
+.popup-content input[type="text"] {
+		 margin-top: 50px;
+		      transform: translate(-8%, 10%);
+    width: 300px;
+  		height:23px;
+    padding:7px;
+    border-radius: 7px;
+    border: 2px solid #000;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="Announce-popup" id="AnnouncePopup">
+    <div class="Announcepopup-content">
+        <span class="close-btn" onclick="closeAnnouncePopup()">
+            <img src="https://cdn-icons-png.flaticon.com/128/14025/14025871.png" style="width: 20px; height: auto;">
+        </span>
+        <div>
+            <div style="text-align: center;">
+            		<br>
+                <h2>Announces and Publications</h2>
+            </div>
+        		<hr>
+            
+        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2F100085217054240%2Fposts%2Fpfbid02YejkLTmWgVknQ8Zw7v9WbdaXmRyJ8gg27be41XX8FxxaJWEiw5hMDiHDohS7uzjsl%2F&show_text=true&width=500" width="330" height="250" style="border:none; overflow:hidden; border-radius: 7px;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+
+            
+            <p>For more information about this, contact us directly from this application.</p>
+            <div style="text-align: center;">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+		<style>
+		.Announce-popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85vw; /* استخدم وحدة العرض النسبية */
+    height: 60vh; /* استخدم وحدة الارتفاع النسبية */
+    max-width: 500px; /* حدد العرض الأقصى المسموح به */
+    max-height: 500px; /* حدد الارتفاع الأقصى المسموح به */
+    background-color: white;
+    padding: 5px; /* تقليل البادينغ لجعل العناصر أصغر */
+    border: 3px solid red; /* تغيير لون البوردر إلى أحمر */
+    border-radius: 10px;
+    color: black;
+    z-index: 1;
+    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
+}
+
+.Announcepopup-content {
+    text-align: center;
+    font-size: 1em; /* تقليل حجم النص */
+    color: black; /* تعيين لون النص إلى الأسود */
+}
+.close-btn {
+    position: absolute;
+    top: 7px;
+    right: 3px;
+    cursor: pointer;
+}
+		</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
+function showSearchPopup() {
+    var popup = document.getElementById("searchPopup");
+    popup.style.display = "block";
+}
+
     function showPopup() {
         var popup = document.getElementById("popup");
         popup.style.display = "block";
@@ -756,6 +874,27 @@ function sosialmedia() {
  
  
  
+function closePopup() {
+        var popup = document.getElementById("popup");
+        popup.style.display = "none";
+    }
+
+    function toggleDropdown() {
+        var dropdownContent = document.getElementById("dropdownContent");
+        dropdownContent.classList.toggle("show");
+    }
+
+
+    // الدالة لنسخ الرابط إلى الحافظة
+function copyLinkToClipboard() {
+    var link = "https://www.mediafire.com/file/3h3vb36i19t9hyg/Techno+app+{Last+version}.apk/file";
+    var tempInput = document.createElement("input");
+    document.body.appendChild(tempInput);
+    tempInput.value = link;
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+}
 
 
  
@@ -765,10 +904,6 @@ function sosialmedia() {
     function goToHome() {
         window.location.href = "https://yacne.github.io/Techno-app-/Techno%20app%20v5.0.html";
     }
-
-
-
-
 
 
 
@@ -805,6 +940,7 @@ function toggleDarkMode() {
         // وضع مظلم
         body.style.backgroundColor = '#000';
         body.style.color = '#000';
+     		
 
         // تغيير لون بوردر الصور
         images.forEach(function(image) {
@@ -812,102 +948,27 @@ function toggleDarkMode() {
             var newColor = currentColor === 'gray' ? '#fff' : 'gray';
             image.style.borderColor = newColor;
         });
+    		
     } else {
         // وضع مشرق
         body.style.backgroundColor = '#fff';
         body.style.color = '#000';
+    		
 
         // تغيير لون بوردر الصور
         images.forEach(function(image) {
             var currentColor = image.style.borderColor;
             var newColor = currentColor === 'white' ? '#fff' : 'black';
             image.style.borderColor = newColor;
+        		
+        		
         });
     }
 }
-</script>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="Announce-popup" id="AnnouncePopup">
-    <div class="Announcepopup-content">
-        <span class="close-btn" onclick="closeAnnouncePopup()">
-            <img src="https://cdn-icons-png.flaticon.com/128/14025/14025871.png" style="width: 20px; height: auto;">
-        </span>
-        <div>
-            <div style="text-align: center;">
-            		<br>
-                <h2>Announces and Publications</h2>
-            </div>
-        		<hr>
-            
-        		<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2F100085217054240%2Fposts%2F399285642922001%2F&show_text=true&width=500" width="330" height="305" style="border:none; overflow:hidden; border-radius: 7px;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-
-            
-            <p>For more information about this, contact us directly from this application.</p>
-            <div style="text-align: center;">
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-<style>
-.Announce-popup {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 85vw; /* استخدم وحدة العرض النسبية */
-    height: 70vh; /* استخدم وحدة الارتفاع النسبية */
-    max-width: 500px; /* حدد العرض الأقصى المسموح به */
-    max-height: 500px; /* حدد الارتفاع الأقصى المسموح به */
-    background-color: white;
-    padding: 5px; /* تقليل البادينغ لجعل العناصر أصغر */
-    border: 3px solid red; /* تغيير لون البوردر إلى أحمر */
-    border-radius: 10px;
-    color: black;
-    z-index: 1;
-    margin: 0 auto; /* توسيط العناصر عند التحكم بالعرض */
-}
-
-.Announcepopup-content {
-    text-align: center;
-    font-size: 1em; /* تقليل حجم النص */
-    color: black; /* تعيين لون النص إلى الأسود */
-}
-
-.close-btn {
-    position: absolute;
-    top: 7px;
-    right: 3px;
-    cursor: pointer;
-}
-
-
-</style>
-<script>
 function closeAnnouncePopup() {
     var popup = document.getElementById('AnnouncePopup');
     popup.style.display = 'none';
@@ -917,42 +978,15 @@ window.onload = function() {
     var popup = document.getElementById('AnnouncePopup');
     popup.style.display = 'block';
 };
+
+
+function showSearchPopup() {
+    var popup = document.getElementById("searchPopup");
+    popup.style.display = "block";
+}
+
+
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
