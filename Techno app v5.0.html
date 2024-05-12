@@ -510,8 +510,18 @@ input:checked + .slider:before {
     <div class="button" style="background-image: url('https://cdn-icons-png.flaticon.com/128/4963/4963862.png'); background-size: cover; border: 3px solid #gray; border-radius: 20px;"></div>
 </div>
 <div class="button-container">
-    <div class="button" style="background-image: url('https://cdn-icons-png.flaticon.com/128/2519/2519229.png'); background-size: cover; border: 3px solid #gray; border-radius: 20px;"></div>
-    <div class="button" style="background-image: url('https://cdn-icons-png.flaticon.com/128/12099/12099843.png'); background-size: cover; border: 3px solid #gray; border-radius: 20px;"></div>
+		
+		
+		
+<div class="button" onclick="showFullscreenIframe()">
+    <img src="https://cdn-icons-png.flaticon.com/128/2519/2519229.png" style="width: 100%; height: 100%; border-radius: 20px;">
+</div>
+
+
+		
+		
+		
+		    <div class="button" style="background-image: url('https://cdn-icons-png.flaticon.com/128/12099/12099843.png'); background-size: cover; border: 3px solid #gray; border-radius: 20px;"></div>
 </div>
 
 
@@ -540,6 +550,18 @@ margin-top: 10px; margin-bottom: 20px;">
 
 
 
+<div id="iframeOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
+    <iframe id="fullScreenIframe" src="" style="width: 100%; height: 100%; border: none;"></iframe>
+</div>
+
+<script>
+    function showFullscreenIframe() {
+        var iframeOverlay = document.getElementById("iframeOverlay");
+        var fullScreenIframe = document.getElementById("fullScreenIframe");
+        fullScreenIframe.src = "https://yacne.github.io/Techno-app-/Problems%20&%20solutions%20&%20info%20.html";
+        iframeOverlay.style.display = "block";
+    }
+</script>
 
 
 
@@ -728,20 +750,27 @@ margin-top: 10px; margin-bottom: 20px;">
 
 
 <script>
-function showSearchPopup() {
-    var popup = document.getElementById("searchPopup");
-    popup.style.display = "block";
-}
 
-    function showPopup() {
-        var popup = document.getElementById("popup");
-        popup.style.display = "block";
+    function search() {
+        // قم بجمع البيانات المطلوبة من الصفحة المستهدفة وقم بتحليلها للعثور على النتائج المناسبة
+
+        // على سبيل المثال، قم بالبحث في عناصر العناوين h1 و h2 في الصفحة
+        var titles = document.querySelectorAll("h1, h2");
+
+        // عرض النتائج في صندوق البحث
+        var searchResults = "";
+        titles.forEach(function(title) {
+            searchResults += title.textContent + "<br>";
+        });
+
+        // عرض النتائج تحت شريط البحث في الصندوق الناتج
+        var searchResultsContainer = document.getElementById("searchResults");
+        searchResultsContainer.innerHTML = searchResults;
     }
 
-function closePopup() {
-    var popup = document.getElementById("popup");
-    popup.style.display = "none";
-}
+
+
+
 
     function showInfoPopup() {
         var infoPopup = document.getElementById("infoPopup");
