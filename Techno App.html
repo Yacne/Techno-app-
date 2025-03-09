@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      height: 100vh;
+    }
+    .toolbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #000;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: transform 0.5s ease-in-out;
+      z-index: 1000;
+    }
+    .toolbar-icons {
+      display: flex;
+      justify-content: space-between;
+      width: 90%;
+    }
+    .toolbar-icons i {
+      color: #fff;
+      font-size: 25px;
+      margin: 0 2px;
+      transition: color 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+    .toolbar-icons i:hover {
+      color: #00AFFF;
+      transform: scale(1.3);
+    }
+    .toolbar-icons img {
+      width: 25px;
+      height: 25px;
+      margin: 0 2px;
+      transition: transform 0.5s ease-in-out;
+      cursor: pointer;
+    }
+    .toolbar-icons img:hover {
+      transform: scale(1.2);
+    }
+    .toolbar-toggle {
+      position: absolute;
+      bottom: 100%;
+      left: 10px;
+    }
+    .toolbar-toggle i {
+      color: #767676;
+      font-size: 30px;
+    }
+    .hidden {
+      transform: translateY(100%);
+    }
+    .toggle-button {
+      position: absolute;
+      border: 1px solid #000000;
+      border-radius: 50%;
+      background-color: #FFFFFF;
+      bottom: 100%;
+      left: 10px;
+      font-size: 1.5rem;
+      color: #747474;
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      margin-bottom: 1%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .toggle-button i {
+      transition: transform 0.5s ease-in-out;
+    }
+    .toggle-button i.fa-chevron-up {
+      transform: rotate(180deg);
+    }
+    .active {
+      color: #00AFFF !important;
+      transform: scale(1.3) !important;
+    }
+    .social-media-icons {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      padding: 50%;
+      border-radius: 10px;
+      z-index: 999;
+    }
+    .social-media-icons a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 3rem;
+      margin: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .social-media-icons a i {
+      margin-right: 10px;
+    }
+    .social-media-icons a span {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #000000;
+    }
+    .phone-number {
+      color: #000000;
+      font-size: 1.8rem;
+      font-weight: bold;
+      padding: 30px;
+      margin-bottom: 20%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .iframe-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: calc(100% - 60px);
+      background-color: rgba(0, 0, 0, 0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 998;
+      transition: height 0.5s ease-in-out;
+    }
+    .iframe-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .toolbar.hidden ~ .iframe-container {
+      height: 100%;
+    }
+    .content-container {
+      position: absolute;
+      background-color: #fff;
+      padding: 0;
+      margin: 2%;
+      margin-bottom: 50%;
+      display: none;
+      z-index: 999;
+
+    }
+    .content-container h2 {
+      margin-bottom: 10px;
+    }
+    
+    
+    
+            .user-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #FFFFFF;
+            border-radius: 50%;
+            position: absolute;
+            top: 3px;
+            left: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000000;
+            background-size: cover;
+            font-size: 20px;
+        }
+
+        .user-icon i {
+            display: block;
+        }
+
+        .popup, .success-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 80%;
+            z-index: 1000;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .image-icon {
+            width: 100px;
+            height: 100px;
+            font-size: 3rem;
+            background-color: #000000;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin: 20px auto;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border-radius: 7px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #444;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .success-icon {
+            font-size: 80px;
+            color: green;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .success-popup button {
+            margin-top: 20px;
+        }
+
+        #userImage {
+            border-radius: 50%;
+            object-fit: cover;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        
+        
+          .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 10%;
+  }
+  .image-container {
+    margin: 0%;
+    width: 95%;
+  }
+
+.image-container img {
+  width: 100%;
+  max-width: 100%;
+  align-items: center;
+  height: auto;
+  border-radius: 15px;
+  border: 1px solid Black;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+  .title {
+    font-size: 2rdm;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .description {
+    font-size: 1rem;
+    color: #000000;
+  }
+        
+        
+        
+        #news-icon {
+  color: #fff; /* لون أبيض */
+  transform: scale(1); /* لحجم الأيقونة الافتراضي */
+}
+
+#news-icon.active {
+  color: #007BFF; /* لون أزرق */
+  transform: scale(1.2); /* لتكبير الأيقونة */
+}
+        
+    @keyframes spin {
+0% {
+transform: translate(-50%, -50%) rotate(0deg);
+}
+100% {
+transform: translate(-50%, -50%) rotate(360deg);
+}
+}
+
+
+#iframe-container, #megasoft-iframe-container {
+  display: none;
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <div class="toolbar-icons">
+      <i class="fas fa-newspaper" id="news-icon"></i>
+      <i class="fas fa-comment" id="chat-icon"></i>
+      <img src="chat SIP.png" alt="Chat SIP Logo" id="chat-sip-logo">
+      <img src="Megasoft logo.png" alt="Megasoft Logo" id="megasoft-logo">
+      <i class="fas fa-info-circle" id="info-icon"></i>
+    </div>
+    <div class="toggle-button">
+      <i class="fas fa-chevron-down" id="toggle-icon"></i>
+    </div>
+  </div>
+
+
+  <!-- محتوى ديناميكي للتبويبات -->
+  <div style="margin-bottom: 20%;" class="content-container" id="news-content">
+<div class="gallery">
+  <div class="image-container">
+    <img src="1.jpg">
+    <h2 class="title" style="color: #00AFFF;">Techno app and Megasoft™ in ramadan</h2>
+    <p class="description">Techno App and Megasoft ™ services accompanying you throughout the holy month of Ramadan</p>
+  </div>
+  <div class="image-container">
+    <img style="border-radius: 0px;" src="2.jpg">
+    <h2 class="title" style="color: #939393;">Megasoft™ seevices</h2>
+    <p class="description">We previously launched the Megasoft ™ as an independent company with support from B.Y Pro. 
+It provides services to meet the needs of the market and customers, including programming web development, applications, artificial intelligence, cyber security, design, graphics, editing, tools and scripts. You can request your service now and through the rapid tab in the Techno App application.</p>
+  </div>
+  <div class="image-container">
+    <img src="3.jpg">
+    <h2 class="title" style="color: #00771D;">sha frorkm m3 techno app</h2>
+    <p class="description">بحلول شهر رمضان الكريم نسأل الله ان يتقبل منا و منكم صالح الاعمال و الاجر ، صيام خفيف و اكل لذيذ ،صح فطوركم</p>
+  </div>
+  <div class="image-container">
+    <img src="4.jpg">
+    <h2 class="title" style="color: #000000;">Chat SIP</h2>
+    <p class="description">Chat Sip, is a smart reaction program and it is a developed model in the Fluxa AI from B.Y Pro and it is intended for reaction and chat such as Chat GPT and is still under development and is available in Techno App the middle tab</p>
+  </div>
+  <div class="image-container">
+    <img src="5.jpg">
+    <h2 class="title" style="color: #FF0017;">techno YT</h2>
+    <p class="description">We will soon return to our YouTube channel, Techno YT, we just need your continuous and thank you</p>
+
+  <div class="image-container">
+    <img src="6.jpg">
+    <h2 class="title" style="color: #FFB700">Exclusive discounts on Megasoft services</h2>
+    <p class="description">We are pleased to offer comprehensive discounts on our Megasoft services ♕ 20% ♕</p>
+    
+<h4 style="color: #696969; text-align: center; margin-top: 10%; margin-bottom: 20%;">There are still new updates to our news....</h4>
+
+<div style="position: absolute; left: 50%; transform: translate(-50%, -50%); width: 20px; height: 20px; border-radius: 50%; border: 3px solid #ccc; border-top-color: #007bff; animation: spin 1s linear infinite; bottom: 2%; "></div>
+  </div>
+</div>
+</div>
+ </div>
+
+
+
+  <div class="social-media-icons" id="social-media-icons">
+    <a href="https://t.me/BYPROtlgrm" target="_blank"><i class="fab fa-telegram" style="color: #0088cc;"></i><span>Telegram</span></a>
+    <a href="https://m.me/102165005972535" target="_blank"><i class="fab fa-facebook-messenger" style="color: #006AFF;"></i><span>Messenger</span></a>
+    <a href="https://www.facebook.com/profile.php?id=100085217054240" target="_blank"><i class="fab fa-facebook" style="color: #1877F2;"></i><span>Facebook</span></a>
+    <a href="https://www.youtube.com/@technoYT2024" target="_blank"><i class="fab fa-youtube" style="color: #FF0000;"></i><span>YouTube</span></a>
+    <a href="https://wa.me/213795082763" target="_blank"><i class="fab fa-whatsapp" style="color: #25D366;"></i><span>WhatsApp</span></a>
+    <a href="http://tiktok.com/@b.yprotiktok" target="_blank"><i class="fab fa-tiktok" style="color: #000000;"></i><span>TikTok</span></a>
+    <a href="https://twitter.com/Yacinebenm81049" target="_blank">
+    <i class="fa-brands fa-x-twitter" style="color: #000000;"></i><span>X</span></a>
+    <a href="https://www.instagram.com/b.yproinsta?igsh=dGRkczlpdmo2ZnFh" target="_blank"><i class="fab fa-instagram" style="color: #E4405F;"></i><span>Instagram</span></a>
+    <a href="https://www.linkedin.com/in/b-y-pro-519940263" target="_blank"><i class="fab fa-linkedin" style="color: #0A66C2;"></i><span>LinkedIn</span></a>
+    <div class="phone-number">
+      <i class="fas fa-phone"></i> +213 795082763
+    </div>
+  </div>
+
+  <div class="iframe-container" id="iframe-container">
+    <iframe src="https://yacne.github.io/Chat-SIP/Chat%20SIP.html"></iframe>
+  </div>
+
+
+<div class="iframe-container" id="megasoft-iframe-container">
+  <iframe src="https://yacne.github.io/Megasoft/official%20page%20-%20Megasoft%E2%84%A2.html"></iframe>
+</div>
+
+<div class="content-container" id="info-content">
+
+
+<nav style="background-color: #2D2D2D; height: 5%; width: 100%; display: flex; position: fixed; z-index: 10000; top: 0; left: 0; display: none;">
+<div class="user-icon" id="userIcon" onclick="togglePopup()">
+<i class="fas fa-user" id="userIconImage"></i>
+</div>
+</nav>
+
+<div class="overlay" onclick="closePopup()"></div>
+<div class="popup" id="popup">
+    <h2>User Registration</h2>
+    <div class="image-icon" id="imageIcon" onclick="document.getElementById('fileInput').click();">
+        <i class="fas fa-user"></i>
+    </div>
+    <input type="file" id="fileInput" accept=".png, .jpg, .jpeg, .heic" onchange="previewImage(event)" style="display: none;">
+    <img id="userImage" src="" alt="User Image" style="display:none;" onclick="document.getElementById('fileInput').click();">
+    <br>
+    <input type="text" id="fullName" placeholder="Full Name" required>
+    <input type="text" id="contact" placeholder="Phone or Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <br>
+    <input type="checkbox" id="terms" required> I agree to the terms and conditions
+    <br><br>
+    <button onclick="saveUser()">Save</button>
+    <div class="error-message" id="errorMessage">Please fill all fields and choose an image.</div>  
+</div>
+
+<div style="margin-top: 0%;">
+<div style="display: flex; align-items: center;">
+<img src="B.Y PRO.png" alt="B.Y PRO" style="width: 50px; height: 50px; margin-right: 10px;">
+<h3 style="color: #007BFF;">B.Y PRO:</h3>
+</div>
+<p>B.Y PRO is a leading software company that offers a wide range of services and software products. One of its most notable applications is Techno App, which aims to facilitate communication with customers and provide the latest information about the company's products.</p>
+</div>
+<a href="https://yacne.github.io/B.Y-PRO---Official-Page/B.Y%20PRO%20-%20Official%20Page.html"style="margin: 5%;display: inline-block; padding: 10px 20px; border-radius: 50px; background-color: white; color: black; border: 2px solid #0098FF; text-decoration: none; text-align: center;">Click here to move</a>
+<div style="margin-bottom: 20px;">
+<div style="display: flex; align-items: center;">
+<img src="Techno App.png" alt="Techno App" style="width: 50px; height: 50px; margin-right: 10px;">
+<h3 style="color: #007BFF;">Techno App:</h3>
+</div>
+<p>Techno App offers multiple features, including displaying the latest news and updates related to B.Y PRO and its products. It also provides all the means and platforms to communicate with the company through social media, and contains a feature to talk to artificial intelligence through the Chat SIP model from the Fluxa AI section.</p>
+</div>
+<a href="https://www.facebook.com/profile.php?id=61556128407589" style="margin: 5%;display: inline-block; padding: 10px 20px; border-radius: 50px; background-color: white; color: black; border: 2px solid #0098FF; text-decoration: none; text-align: center;">Click here to move</a>
+<div style="margin-bottom: 20px;">
+<div style="display: flex; align-items: center;">
+<img src="FluxaAI.png" alt="Fluxa AI" style="width: 50px; height: 50px; margin-right: 10px;">
+<h3 style="color: #007BFF;">Fluxa AI:</h3>
+</div>
+<p>Fluxa AI is a section of B.Y PRO that focuses on artificial intelligence and the development of linguistic models. The company has developed models such as OSS GPT, Chat DIM, and Chat SIP, and is still working on developing and improving its projects to meet the changing needs of the market.</p>
+</div>
+<a href="https://yacne.github.io/Fluxa-AI-website/Fluxa%20AI.html" style="margin: 5%;display: inline-block; padding: 10px 20px; border-radius: 50px; background-color: white; color: black; border: 2px solid #0098FF; text-decoration: none; text-align: center;">Click here to move</a>
+<div style="margin-bottom: 20px;">
+<div style="display: flex; align-items: center;">
+<img src="Chat SIP.png" alt="Chat SIP" style="width: 50px; height: 50px; margin-right: 10px;">
+<h3 style="color: #007BFF;">Chat SIP:</h3>
+</div>
+<p>Chat SIP is an artificial intelligence model designed to interact and respond intelligently with users linguistically and textually. It is based on the Google Gemini model and is useful for simple daily tasks such as editing, accounting, summarizing, and solving problems.</p>
+</div>
+<a href="https://yacne.github.io/Chat-SIP/Chat%20SIP.html" style="margin: 5%;display: inline-block; padding: 10px 20px; border-radius: 50px; background-color: white; color: black; border: 2px solid #0098FF; text-decoration: none; text-align: center;">Click here to move</a>
+<div style="margin-bottom: 20px;">
+<div style="display: flex; align-items: center;">
+<img src="TechnoYT.png" alt="Megasoft" style="width: 50px; height: 50px; margin-right: 10px;">
+<h3 style="color: #007BFF;">Techno YT:</h3>
+</div>
+<p>Techno YT is a YouTube channel with diverse content about technology, programming, applications, and artificial intelligence. Support us and thank you.</p>
+</div>
+<a href="https://www.youtube.com/@technoYT2024" style="margin: 5%;display: inline-block; padding: 10px 20px; border-radius: 50px; background-color: white; color: black; border: 2px solid #0098FF; text-decoration: none; text-align: center;">Click here to move</a>
+<div style="margin-bottom: 20px;">
+<div style="display: flex; align-items: center;">
+<img src="Megasoft logo.png" alt="Megasoft" style="width: 50px; height: 50px; margin-right: 10px;">
+<h3 style="color: #007BFF;">Megasoft:</h3>
+</div>
+<p>Megasoft is a new brand from B.Y PRO, representing an independent software company that provides software services that meet the needs of the market and customers. Its services include website and application programming, artificial intelligence, cybersecurity, design, graphics, editing, and tools and scripts.</p>
+</div>
+<a href="https://yacne.github.io/Megasoft/official%20page%20-%20Megasoft™.html" style="margin: 5%;display: inline-block; padding: 10px 20px; border-radius: 50px; background-color: white; color: black; border: 2px solid #0098FF; text-decoration: none; text-align: center;">Click here to move</a>
+<div style="margin-bottom: 20px;">
+<div style="display: flex; align-items: center;">
+<img src="coding academy.png" alt="Coding Academy" style="width: 50px; height: 50px; margin-right: 10px;">
+<h3 style="color: #007BFF;">Coding Academy:</h3>
+</div>
+<p>Coding Academy is an educational platform on Facebook that offers courses and lessons on programming and its basics. The platform has provided lessons on the basics of Python, but it has currently stopped providing content.</p>
+</div>
+<a href="https://www.facebook.com/profile.php?id=61566534981862" style="margin: 5%;display: inline-block; padding: 10px 20px; border-radius: 50px; background-color: white; color: black; border: 2px solid #0098FF; text-decoration: none; text-align: center;">Click here to move</a>
+<div style="margin-bottom: 20px;">
+<div style="display: flex; align-items: center;">
+<img src="B.Y PRO Gaming studio.png" alt="B.Y PRO Gaming studio" style="width: 50px; height: 50px; margin-right: 10px;">
+<h3 style="color: #007BFF;">B.Y PRO Gaming studio:</h3>
+</div>
+<p>B.Y PRO Gaming studio is a division of B.Y PRO that specializes in programming and developing 3D games.</p>
+</div>
+<a href="https://www.facebook.com/profile.php?id=61558259254088" style="margin: 5%;display: inline-block; padding: 10px 20px; border-radius: 50px; background-color: white; color: black; border: 2px solid #0098FF; text-decoration: none; text-align: center;">Click here to move</a>
+<div style="margin-bottom: 20px;">
+<div style="display: flex; align-items: center;">
+<img src="searchO.png" alt="SearchO" style="width: 50px; height: 50px; margin-right: 10px;">
+<h3 style="color: #007BFF;">SearchO:</h3>
+</div>
+<p>SearchO is a search engine project based on Google, aiming to search only links. It is supported by the Chat SIP artificial intelligence to provide definitions or brief answers to search queries, but it is still under development and has not been launched yet.</p>
+</div>
+<a href="https://www.facebook.com/profile.php?id=61570923884501" style="margin: 5%;display: inline-block; padding: 10px 20px; border-radius: 50px; background-color: white; color: black; border: 2px solid #0098FF; text-decoration: none; text-align: center;">Click here to move</a>
+<div style="margin-bottom: 20px;">
+<div style="display: flex; align-items: center;">
+<img src="Alpha os.png" alt="Alpha OS" style="width: 50px; height: 50px; margin-right: 10px;">
+<h3 style="color: #007BFF;">Alpha OS:</h3>
+</div>
+<p>Alpha OS is a full-fledged operating system project based on Tiny Core Plus Linux distribution. It is characterized by its attractive and elegant design and interface, and is intended for the general public and programmers in particular. However, the project is still under development and has not been launched yet.</p>
+</div>
+<a href="https://www.facebook.com/profile.php?id=61559620474607" style="margin: 5%;display: inline-block; padding: 10px 20px; border-radius: 50px; background-color: white; color: black; border: 2px solid #0098FF; text-decoration: none; text-align: center;">Click here to move</a>
+<div style="margin-bottom: 20px;">
+<div style="display: flex; align-items: center;">
+<img src="My security.png" alt="My Security" style="width: 50px; height: 50px; margin-right: 10px;">
+<h3 style="color: #007BFF;">My Security:</h3>
+</div>
+<p>My Security is a service from B.Y PRO specializing in cybersecurity and online protection. It provides lessons and tips to raise awareness among users through its Facebook page, with the aim of protecting users from hacking, phishing, and online scams.</p>
+</div>
+<a href="https://www.facebook.com/profile.php?id=61568087394794" style="margin: 5%;display: inline-block; padding: 10px 20px; border-radius: 50px; background-color: white; color: black; border: 2px solid #0098FF; text-decoration: none; text-align: center;">Click here to move</a>
+<div style="margin-bottom: 20px;">
+<div style="display: flex; align-items: center;">
+<img src="LIS PRO.png" alt="LIS PRO" style="width: 50px; height: 50px; margin-right: 10px;">
+<h3 style="color: #007BFF;">LIS PRO:</h3>
+</div>
+<p>LIS PRO, photo editing, icons, symbols, graphic design, interfaces and visual effects</p>
+</div>
+<a href="https://www.facebook.com/profile.php?id=61567366379069" style="margin: 5%;display: inline-block; padding: 10px 20px; border-radius: 50px; background-color: white; color: black; border: 2px solid #0098FF; text-decoration: none; text-align: center;">Click here to move</a>
+
+<div style="margin-bottom: 20px;">
+<div style="display: flex; align-items: center;">
+<img src="Translator PRO.png" style="width: 50px; height: 50px; margin-right: 10px;">
+<h3 style="color: #007BFF;">Translator PRO:</h3>
+</div>
+<p>We offer instant translation service in major languages, which are:
+Arabic, English, French, Spanish, and Japanese.</p>
+<p>We are available as a Facebook bot. To access us, please click the "Click here to move" button.</p>
+</div>
+<a href="https://www.facebook.com/profile.php?id=61573424866775" style="margin: 5%;display: inline-block; padding: 10px 20px; border-radius: 50px; background-color: white; color: black; border: 2px solid #0098FF; text-decoration: none; text-align: center;">Click here to move</a>
+
+<div style="margin-bottom: 20px;">
+<div style="text-align: right;">
+<div style="display: flex; align-items: center; justify-content: flex-end;">
+<h3 style=" margin-right: 3%;text-align: right; color: #007BFF;">:الْقُرْآنُ الْكَرِيمُ</h3>
+<img src="الْقُرْآنُ الْكَرِيمُ.png" alt="الْقُرْآنُ الْكَرِيمُ" style="width: 50px; height: 50px; right: 0px;">
+</div>
+<p style="text-align: right;">القرآن الكريم كتاب الله عز و جل و نفتخر به كأمة اسلامية و محاربة للذين ينشؤون صفحات و تطبيقات مزيفة عن القرآن و محاولة تحريفه لاكنه محفوظ عند الله و نحن نجاهد في سبيله.</p>
+<a href="https://www.facebook.com/100085217054240/posts/pfbid04T3cAFuGBNShK6MLH4SSkcDmw5Mv8w1ddL26bHzxVtyhTPE3voanQDpUpcABD3HJl/?app=fbl" style="margin: 5%;display: inline-block; padding: 10px 20px; border-radius: 50px; background-color: white; color: black; border: 2px solid #0098FF; text-decoration: none; text-align: center; margin-left: auto;">Click here to move</a>
+</div>
+<div style="margin-top: 20px;">
+<p style="text-align: center;margin: 5%; color: #6B6B6B; font-size: 1rem;" >There are still other new and old diverse projects and sections under development. For more details, contact us through the messaging tab in the app.</p>
+</div>
+<div style="margin-bottom: 20%;">
+</div>
+
+  <script>
+    const toggleIcon = document.getElementById('toggle-icon');
+    const toolbar = document.querySelector('.toolbar');
+    const icons = document.querySelectorAll('.toolbar-icons i, .toolbar-icons img');
+    const socialMediaIcons = document.getElementById('social-media-icons');
+    const iframeContainer = document.getElementById('iframe-container');
+    const chatSipLogo = document.getElementById('chat-sip-logo');
+    const newsContent = document.getElementById('news-content');
+    const infoContent = document.getElementById('info-content');
+    newsContent.style.display = 'block';
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('news-icon').classList.add('active');
+});
+
+icons.forEach(icon => {
+  icon.addEventListener('click', function() {
+    icons.forEach(i => i.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+
+
+
+    toggleIcon.addEventListener('click', () => {
+      toolbar.classList.toggle('hidden');
+      toggleIcon.classList.toggle('fa-chevron-up');
+    });
+    
+    
+
+    icons.forEach(icon => {
+      icon.addEventListener('click', () => {
+        icons.forEach(i => i.classList.remove('active'));
+        if (icon.id === 'chat-icon') {
+          socialMediaIcons.style.display = 'flex';
+          iframeContainer.style.display = 'none';
+          newsContent.style.display = 'none';
+          infoContent.style.display = 'none';
+        } else if (icon.id === 'chat-sip-logo') {
+          iframeContainer.style.display = 'flex';
+          socialMediaIcons.style.display = 'none';
+          newsContent.style.display = 'none';
+          infoContent.style.display = 'none';
+        } else if (icon.id === 'news-icon') {
+          newsContent.style.display = 'block';
+          socialMediaIcons.style.display = 'none';
+          iframeContainer.style.display = 'none';
+          infoContent.style.display = 'none';
+        } else if (icon.id === 'info-icon') {
+          infoContent.style.display = 'block';
+          socialMediaIcons.style.display = 'none';
+          iframeContainer.style.display = 'none';
+          newsContent.style.display = 'none';
+        } else {
+          socialMediaIcons.style.display = 'none';
+          iframeContainer.style.display = 'none';
+          newsContent.style.display = 'none';
+          infoContent.style.display = 'none';
+        }
+        icon.classList.add('active');
+      });
+    });
+    
+    
+    
+
+    function togglePopup() {
+        const popup = document.getElementById('popup');
+        const overlay = document.querySelector('.overlay');
+        popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+        overlay.style.display = overlay.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function closePopup() {
+        const popup = document.getElementById('popup');
+        const overlay = document.querySelector('.overlay');
+        popup.style.display = 'none';
+        overlay.style.display = 'none';
+    }
+
+    function previewImage(event) {
+        const userImage = document.getElementById('userImage');
+        const imageIcon = document.getElementById('imageIcon');
+        const userIcon = document.getElementById('userIcon');
+        const file = event.target.files[0];
+
+        if (file) {
+            const validExtensions = ['image/png', 'image/jpeg', 'image/heic'];
+            if (!validExtensions.includes(file.type)) {
+                alert("Please select a valid image (PNG, JPG, HEIC)");
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onloadend = function () {
+                const base64Image = reader.result;
+                userImage.src = base64Image;
+                userImage.style.display = 'block';
+                imageIcon.style.display = 'none';
+
+                // Save the base64 encoded image in Local Storage
+                localStorage.setItem('userImage', base64Image);
+
+                // Update user icon
+                userIcon.style.backgroundImage = `url(${base64Image})`;
+                userIcon.style.backgroundSize = 'cover';
+                userIcon.innerHTML = '';  // Hide the icon if image exists
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
+    
+
+    function closeSuccessPopup() {
+        document.getElementById('successPopup').style.display = 'none';
+        closePopup();
+    }
+    
+
+
+const megasoftLogo = document.getElementById('megasoft-logo');
+const megasoftIframeContainer = document.getElementById('megasoft-iframe-container');
+
+icons.forEach(icon => {
+  icon.addEventListener('click', () => {
+    icons.forEach(i => i.classList.remove('active'));
+    if (icon.id === 'chat-icon') {
+      socialMediaIcons.style.display = 'flex';
+      iframeContainer.style.display = 'none';
+      megasoftIframeContainer.style.display = 'none';
+      newsContent.style.display = 'none';
+      infoContent.style.display = 'none';
+    } else if (icon.id === 'chat-sip-logo') {
+      iframeContainer.style.display = 'flex';
+      socialMediaIcons.style.display = 'none';
+      megasoftIframeContainer.style.display = 'none';
+      newsContent.style.display = 'none';
+      infoContent.style.display = 'none';
+    } else if (icon.id === 'news-icon') {
+      newsContent.style.display = 'block';
+      socialMediaIcons.style.display = 'none';
+      iframeContainer.style.display = 'none';
+      megasoftIframeContainer.style.display = 'none';
+      infoContent.style.display = 'none';
+    } else if (icon.id === 'info-icon') {
+      infoContent.style.display = 'block';
+      socialMediaIcons.style.display = 'none';
+      iframeContainer.style.display = 'none';
+      megasoftIframeContainer.style.display = 'none';
+      newsContent.style.display = 'none';
+    } else if (icon.id === 'megasoft-logo') { // إضافة حدث النقر على صورة Megasoft
+      megasoftIframeContainer.style.display = 'flex';
+      socialMediaIcons.style.display = 'none';
+      iframeContainer.style.display = 'none';
+      newsContent.style.display = 'none';
+      infoContent.style.display = 'none';
+    } else {
+      socialMediaIcons.style.display = 'none';
+      iframeContainer.style.display = 'none';
+      megasoftIframeContainer.style.display = 'none';
+      newsContent.style.display = 'none';
+      infoContent.style.display = 'none';
+    }
+    icon.classList.add('active');
+  });
+});
+
+
+function saveUser() {
+  const fullName = document.getElementById('fullName').value;
+  const contact = document.getElementById('contact').value;
+  const password = document.getElementById('password').value;
+  const terms = document.getElementById('terms').checked;
+  const userImage = document.getElementById('userImage').src;
+  const errorMessage = document.getElementById('errorMessage');
+  const successMessage = document.getElementById('successMessage');
+  errorMessage.style.display = 'none';
+  if (!fullName || !contact || !password || !userImage || !terms) {
+    errorMessage.style.display = 'block';
+    return;
+  }
+  // Save user data in Local Storage
+  const userData = {
+    fullName,
+    contact,
+    password,
+    userImage,
+  };
+  localStorage.setItem('userData', JSON.stringify(userData));
+  // Load user data from Local Storage
+  loadUser();
+}
+
+function loadUser() {
+  const userData = localStorage.getItem('userData');
+  if (userData) {
+    const parsedData = JSON.parse(userData);
+    document.getElementById('fullName').value = parsedData.fullName;
+    document.getElementById('contact').value = parsedData.contact;
+    document.getElementById('password').value = parsedData.password;
+    document.getElementById('userImage').src = parsedData.userImage;
+  }
+}
+
+// Load user data from Local Storage when the page loads
+loadUser();
+
+    
+    
+    
+  </script>
+</body>
+</html>
