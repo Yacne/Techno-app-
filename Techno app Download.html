@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Techno App - B.Y PRO</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #FFFFFF;
+      color: #000000;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+
+
+
+    .app-logo {
+      width: 100px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+    }
+
+    .app-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .app-desc {
+      font-size: 1rem;
+      color: #555;
+      margin: 10px 0;
+    }
+
+    .stars {
+      color: #f1c40f;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .download-btn {
+      background: #000;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      cursor: pointer;
+      border-radius: 7px;
+      font-weight: bold;
+      width: 100%;
+      font-size: 16px;
+      transition: background 0.3s;
+      margin: 10px 0;
+    }
+
+    .download-btn:hover {
+      background: #333;
+    }
+
+    .screenshots-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .screenshots {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      gap: 10px;
+      padding: 10px 0;
+    }
+
+    .screenshots img {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .screenshots img:hover {
+      transform: scale(1.05);
+    }
+
+    .rating-bars {
+      text-align: left;
+      margin: 20px 0;
+    }
+
+    .rating-bar {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .bar-container {
+      width: 70%; /* عرض ثابت للأشرطة */
+      background: #f0f0f0;
+      border-radius: 5px;
+      margin-left: 10px;
+      overflow: hidden;
+    }
+
+    .bar {
+      height: 10px;
+      background: #f1c40f;
+      border-radius: 5px;
+    }
+
+    .review {
+      background: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 10px;
+      text-align: left;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .review b {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .review .stars {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
+    .review p {
+      margin: 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .review-form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      text-align: left;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .review-form input,
+    .review-form textarea,
+    .review-form select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .review-form button {
+      background: #000;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+      width: 100%;
+      transition: background 0.3s;
+    }
+
+    .review-form button:hover {
+      background: #333;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: #fff;
+      font-size: 30px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+    <img src="Techno App.png" alt="Techno App" class="app-logo">
+    <div class="app-title">Techno App</div>
+    <p class="app-desc">A communication app to follow B.Y PRO news, Megasoft services, and chat with AI via Chat SIP.</p>
+    <div class="stars">
+      <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i> (4.8 / 5)
+    </div>
+    <a href="Techno App.apk" download="Techno App.apk">
+      <button class="download-btn"><i class="fa fa-download"></i> Download App</button>
+    </a>
+
+    <div class="screenshots-container">
+      <div class="screenshots">
+        <img src="screenshot 1.jpg" alt="Screenshot 1" onclick="openModal(this)">
+        <img src="screenshot 2.jpg" alt="Screenshot 2" onclick="openModal(this)">
+        <img src="screenshot 3.jpg" alt="Screenshot 3" onclick="openModal(this)">
+        <img src="screenshot 4.jpg" alt="Screenshot 4" onclick="openModal(this)">
+        <img src="screenshot 5.jpg" alt="Screenshot 5" onclick="openModal(this)">
+      </div>
+    </div>
+
+    <h3 style="margin: 20px 0;">Rating Statistics</h3>
+    <div class="rating-bars">
+      <div class="rating-bar"><span>★★★★★</span>
+        <div class="bar-container">
+          <div class="bar" style="width: 80%;"></div>
+        </div>
+        80%
+      </div>
+      <div class="rating-bar"><span>★★★★☆</span>
+        <div class="bar-container">
+          <div class="bar" style="width: 10%;"></div>
+        </div>
+        10%
+      </div>
+      <div class="rating-bar"><span>★★★☆☆</span>
+        <div class="bar-container">
+          <div class="bar" style="width: 8%;"></div>
+        </div>
+        8%
+      </div>
+      <div class="rating-bar"><span>★★☆☆☆</span>
+        <div class="bar-container">
+          <div class="bar" style="width: 1%;"></div>
+        </div>
+        1%
+      </div>
+      <div class="rating-bar"><span>★☆☆☆☆</span>
+        <div class="bar-container">
+          <div class="bar" style="width: 1%;"></div>
+        </div>
+        1%
+      </div>
+    </div>
+
+    <h3>Reviews</h3>
+    <div id="reviews">
+      <div class="review">
+        <b>Yacine ben mokrane</b>
+        <div class="stars">★★★★★</div>
+        <p>A very wonderful and useful application. Thank you to B.Y PRO for providing us with this useful application.</p>
+      </div>
+      <div class="review">
+        <b>حسن</b>
+        <div class="stars">★★★☆☆</div>
+        <p>بالتوفيق</p>
+      </div>
+      <div class="review">
+        <b>Chbab amara</b>
+        <div class="stars">★★★★☆</div>
+        <p>بالتوفيق خويا الغالي تستحق 4نجوم وبتطور5نجوم انشاء الله</p>
+      </div>
+      <div class="review">
+        <b>Anwar Anwar</b>
+        <div class="stars">★★★★★</div>
+        <p>a good app that deserves support I hope it will develop over time</p>
+      </div>
+    </div>
+
+    <div class="modal" id="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img id="modalImg">
+    </div>
+
+
+  <script>
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let currentIndex = 0;
+    const slides = document.querySelector('.screenshots');
+    const slideWidth = 210; // عرض الصورة + الهوامش
+
+    slides.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    });
+
+    slides.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].clientX;
+      handleSwipe();
+    });
+
+    function handleSwipe() {
+      const diff = touchStartX - touchEndX;
+      if (diff > 50 && currentIndex < slides.children.length - 1) {
+        currentIndex++;
+      } else if (diff < -50 && currentIndex > 0) {
+        currentIndex--;
+      }
+      updateSlidePosition();
+    }
+
+    function updateSlidePosition() {
+      slides.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+    }
+
+    function openModal(img) {
+      const modal = document.getElementById("modal");
+      const modalImg = document.getElementById("modalImg");
+      modal.style.display = "flex";
+      modalImg.src = img.src;
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("modal");
+      modal.style.display = "none";
+    }
+  </script>
+</body>
+</html>
